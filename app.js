@@ -213,7 +213,7 @@ ${s.key !== 'base' ? `<dt>Экономия</dt><dd style="color:var(--good)">${f
     if (c.graceDebts.length) h += `<div class="alert ok"><span><b>Без процентов, пока соблюдаете льготный период:</b> ${c.graceDebts.map(d => esc(d.name) + ' ' + fmt(d.balance) + ' ₽').join(', ')}. Их не нужно гасить раньше дорогих кредитов.</span></div>`;
     for (const w of c.warnings) h += `<div class="alert"><span>${esc(w)}</span></div>`;
     if ((c.pdn != null && c.pdn > 80) || !base.finished || base.monthsNonMortgage > 84)
-      h += '<div class="alert"><span><b>Нагрузка очень высокая.</b> Узнайте про кредитные каникулы и реструктуризацию в банке. Если выплатить невозможно - стоит оценить банкротство (калькулятор готовится).</span></div>';
+      h += '<div class="alert"><span><b>Нагрузка очень высокая.</b> Узнайте про кредитные каникулы и реструктуризацию в банке. Если выплатить невозможно - стоит оценить банкротство: <a href="https://kalkulyator-bankrotstva.github.io/" target="_blank" rel="noopener">проверить, подходит ли оно вам</a>.</span></div>';
     $('res').innerHTML = h;
   }
   // ---------- общие поля, сохранение ----------
