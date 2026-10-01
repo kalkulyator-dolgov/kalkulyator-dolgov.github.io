@@ -1,111 +1,98 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Калькулятор погашения долгов</title>
 <meta name="description" content="Как быстрее и дешевле закрыть кредиты, кредитки, рассрочки и займы: сравнение стратегий. Данные не покидают ваш браузер.">
+<link rel="stylesheet" href="style.css">
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--ink:#1d232b;--mute:#5f6b7a;--line:#dde2e8;--acc:#1f6feb;--good:#1a7f37;--warn:#9a6700;--bad:#cf222e;--soft:#eef4ff;--warnbg:#fff8e5}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1318;--card:#171c23;--ink:#e6eaef;--mute:#9aa6b4;--line:#2a323d;--acc:#4c8dff;--good:#3fb950;--warn:#d4a72c;--bad:#f85149;--soft:#16233a;--warnbg:#2a2312}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:980px;margin:0 auto;padding:16px}
-h1{font-size:24px;margin:8px 0 4px}h2{font-size:18px;margin:0 0 10px}
-.lead{color:var(--mute);margin:0 0 16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-label.f{display:flex;flex-direction:column;font-size:13px;color:var(--mute);gap:3px}
-input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px;width:100%}
-textarea{min-height:70px}
-.chk{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--ink)}.chk input{width:auto}
-button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:8px 12px;cursor:pointer}
-button.pri{background:var(--acc);border-color:var(--acc);color:#fff}
-.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.debt{border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 10px}
+:root{--brand:#4f46e5;--brand2:#06b6d4}
+.debt{border:1.5px solid var(--line);border-radius:16px;padding:16px;margin:0 0 12px;background:var(--card)}
 .debt.check{border-color:var(--warn);background:var(--warnbg)}
-.debt h3{font-size:15px;margin:0 0 8px;display:flex;justify-content:space-between;gap:8px}
-.src{font-size:12px;color:var(--mute);margin-top:8px}.src b{color:var(--ink)}
-.low{outline:2px solid var(--warn)}
-.drop{border:2px dashed var(--line);border-radius:10px;padding:18px;text-align:center;color:var(--mute)}
-.drop.on{border-color:var(--acc);background:var(--soft)}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-td.n,th.n{text-align:right;white-space:nowrap}
-tr.best td{background:var(--soft)}.tag{font-size:12px;color:var(--good);font-weight:600}
-.tbl{overflow-x:auto}
-.note{font-size:13px;color:var(--mute)}
-.warn{background:var(--warnbg);border-left:3px solid var(--warn);padding:8px 10px;border-radius:6px;margin:6px 0;font-size:14px}
-.stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:10px}
-.stat div{background:var(--bg);border-radius:8px;padding:10px}.stat span{display:block;font-size:12px;color:var(--mute)}.stat b{font-size:18px}
+.debt .top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.debt .top b{font-size:16px}.debt .ico{font-size:22px;margin-right:6px}
+.debt .x{background:none;border:0;font-size:18px;color:var(--mute);cursor:pointer;padding:4px 8px}
+.chk{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:10px;cursor:pointer}.chk input{width:18px;height:18px;accent-color:var(--brand)}
+.low{border-color:var(--warn)!important}
+.src{font-size:12px;color:var(--mute);margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}.src b{color:var(--ink)}
+.addrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}.addrow .fld{flex:1;min-width:200px}
+.status{font-size:14px;color:var(--mute);margin-top:10px;white-space:pre-line}
+.chart{background:var(--field);border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:12px}
 svg text{fill:var(--mute);font-size:11px}
-.links a{display:inline-block;margin:4px 10px 4px 0;color:var(--acc)}
-@media (max-width:600px){table.st tr:first-child{display:none}table.st tr,table.st td{display:block;border:0}table.st tr{border-bottom:1px solid var(--line);padding:6px 0}table.st td.n{display:flex;justify-content:space-between;text-align:right;padding:2px 6px}table.st td.n::before{content:attr(data-l);color:var(--mute);text-align:left;white-space:normal}}
-.status{font-size:13px;color:var(--mute);margin-top:8px;white-space:pre-line}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}td.n,th.n{text-align:right;white-space:nowrap}
+.order{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0 12px}.order span{background:var(--soft);border-radius:999px;padding:4px 10px;font-size:13px}
 </style>
 </head>
 <body>
-<div class="wrap">
-<h1>Калькулятор погашения долгов</h1>
-<p class="lead">Внесите кредиты, кредитки, рассрочки, займы - или загрузите договор, график, выписку, скриншот. Калькулятор сравнит стратегии погашения. Решение принимаете вы.<br><b>Ваши данные не покидают этот браузер:</b> документы читаются прямо на вашем устройстве, на сервер ничего не отправляется. Для чтения PDF и фото страница один раз скачивает программу распознавания с публичного сервера - ваши файлы при этом не передаются. Счётчиков посещений нет.</p>
+<header class="hero"><div class="in">
+<h1>Закройте долги быстрее и дешевле</h1>
+<p>Внесите кредиты, кредитки, рассрочки и займы или просто загрузите договор - калькулятор сравнит стратегии погашения и покажет ваш путь к нулю.</p>
+<div class="chips"><span class="chip">🔒 Данные не покидают браузер</span><span class="chip">📄 Читает договоры и скриншоты</span><span class="chip">⚖️ 4 стратегии рядом</span><span class="chip">⏱ 3 минуты</span></div>
+</div></header>
 
-<div class="card">
-<h2>1. Деньги в месяц</h2>
-<div class="grid">
-<label class="f">Доход семьи, ₽/мес<input id="income" type="number" min="0" step="1000"></label>
-<label class="f">Обязательные расходы (без кредитов), ₽/мес<input id="expenses" type="number" min="0" step="1000"></label>
-<label class="f">Готов доплачивать сверх платежей, ₽/мес<input id="extra" type="number" min="0" step="1000" value="0"></label>
-<label class="f">Кэшбэк / доход от подписки, ₽/мес<input id="cashback" type="number" min="0" step="100" value="0"></label>
-</div>
-<p class="note" id="freeNote"></p>
-</div>
-
-<div class="card">
-<h2>2. Долги</h2>
-<div class="drop" id="drop">Перетащите сюда файлы (PDF, фото, скриншот, Word, текст) или
-<div class="row" style="justify-content:center;margin-top:8px">
-<button class="pri" id="pick">Выбрать файлы</button>
+<main class="wrap">
+<section class="step">
+<h2><span class="num">1</span>Ваши долги</h2>
+<p class="sub">Загрузите документы - поля заполнятся сами. Или добавьте долг вручную.</p>
+<div class="drop" id="drop">
+<div class="ic">📄</div><b>Перетащите договор, график, выписку или скриншот</b>
+<small>PDF, фото, Word, текст - распознаём прямо на вашем устройстве</small>
+<div class="row" style="justify-content:center;margin-top:14px"><button class="btn pri" id="pick">Выбрать файлы</button></div>
 <input type="file" id="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.txt,.docx" hidden>
-</div>
 <div class="status" id="status"></div>
 </div>
-<details style="margin:10px 0"><summary>Вставить текст (переписка, сообщение банка, СМС)</summary>
-<textarea id="paste" placeholder="Например: Остаток долга 120 000 руб, ставка 24,9% годовых, платёж 6 300 руб"></textarea>
-<button id="parsePaste" style="margin-top:6px">Разобрать текст</button></details>
+<details style="margin:14px 0"><summary>Вставить текст из СМС, переписки или приложения банка</summary>
+<textarea id="paste" style="margin-top:8px" placeholder="Например: Остаток долга 120 000 руб, ставка 24,9% годовых, платёж 6 300 руб"></textarea>
+<button class="btn" id="parsePaste" style="margin-top:8px">Разобрать текст</button></details>
 <div id="debts"></div>
-<div class="row"><select id="newType"></select><button id="add">+ Добавить вручную</button></div>
-<p class="note">Карточки, заполненные из документа, подсвечены - проверьте каждое поле и поправьте руками. Под карточкой видно, откуда взято каждое число.</p>
-</div>
+<div class="addrow"><label class="fld">Добавить вручную<span class="box"><select id="newType"></select></span></label><button class="btn" id="add" style="align-self:flex-end;height:48px">+ Добавить</button></div>
+</section>
 
-<div class="card">
-<h2>3. Вариант рефинансирования (по желанию)</h2>
+<section class="step">
+<h2><span class="num">2</span>Деньги в месяц</h2>
+<p class="sub">Чтобы понять, сколько можно направить на досрочное погашение.</p>
 <div class="grid">
-<label class="f">Ставка, которую предлагает банк, %<input id="refiRate" type="number" min="0" step="0.1"></label>
-<label class="f">Срок нового кредита, мес<input id="refiMonths" type="number" min="1" step="1" value="60"></label>
-<label class="f">Комиссии/страховка, % от суммы<input id="refiFee" type="number" min="0" step="0.1" value="0"></label>
+<label class="fld">Доход семьи<span class="box"><input id="income" type="number" min="0" step="1000" inputmode="decimal" placeholder="80 000"><span class="unit">₽</span></span></label>
+<label class="fld">Обязательные расходы<span class="box"><input id="expenses" type="number" min="0" step="1000" inputmode="decimal" placeholder="40 000"><span class="unit">₽</span></span></label>
+<label class="fld">Готов доплачивать сверх платежей<span class="box"><input id="extra" type="number" min="0" step="1000" inputmode="decimal" placeholder="5 000"><span class="unit">₽</span></span></label>
+<label class="fld">Кэшбэк, доход от подписок<span class="box"><input id="cashback" type="number" min="0" step="100" inputmode="decimal" placeholder="0"><span class="unit">₽</span></span></label>
 </div>
-<p class="note">Объединяются только долги со ставкой выше предложенной; ипотека и покупки частями не включаются.</p>
+<p class="note" id="freeNote"></p>
+<details style="margin-top:10px"><summary>Есть предложение рефинансирования?</summary>
+<div class="grid" style="margin-top:10px">
+<label class="fld">Ставка банка<span class="box"><input id="refiRate" type="number" min="0" step="0.1" inputmode="decimal" placeholder="19,9"><span class="unit">%</span></span></label>
+<label class="fld">Срок нового кредита<span class="box"><input id="refiMonths" type="number" min="1" step="1" inputmode="decimal"><span class="unit">мес</span></span></label>
+<label class="fld">Комиссии и страховка<span class="box"><input id="refiFee" type="number" min="0" step="0.1" inputmode="decimal"><span class="unit">%</span></span></label>
 </div>
+<p class="note">Объединяются только долги со ставкой выше предложенной; ипотека и покупки частями не включаются.</p></details>
+</section>
 
-<div class="card" id="result"><h2>4. Сравнение стратегий</h2><div id="res"><p class="note">Добавьте хотя бы один долг.</p></div></div>
+<section class="step" id="result">
+<h2><span class="num">3</span>Ваш план</h2>
+<p class="sub">Сравнение стратегий. Решение принимаете вы.</p>
+<div id="res"></div>
+</section>
 
-<div class="card">
+<section class="step">
 <div class="row">
-<button id="save">Сохранить данные в файл</button>
-<button id="load">Загрузить из файла</button><input type="file" id="loadFile" accept=".json" hidden>
-<button id="clear">Очистить всё</button>
-<label class="chk"><input type="checkbox" id="remember"> Помнить в этом браузере</label>
+<button class="btn ghost" id="save">💾 Сохранить в файл</button>
+<button class="btn ghost" id="load">📂 Открыть файл</button><input type="file" id="loadFile" accept=".json" hidden>
+<button class="btn ghost" id="clear">🗑 Очистить</button>
+<label class="chk" style="margin:0"><input type="checkbox" id="remember"> Помнить в этом браузере</label>
 </div>
-<p class="note">Нужна помощь с разбором? <a href="https://vk.ru/pyankov_vv" target="_blank" rel="noopener">Написать мне</a> - посмотрю вашу ситуацию.</p>
-</div>
+<p style="margin:14px 0 0">🤝 Хотите, чтобы человек посмотрел вашу ситуацию? <a href="https://vk.ru/pyankov_vv" target="_blank" rel="noopener"><b>Написать мне</b></a></p>
+</section>
 
-<div class="card links">
-<h2>Другие калькуляторы</h2>
-<a href="https://kalkulyator-soc-kontrakta.github.io/" target="_blank" rel="noopener">Социальный контракт</a>
-<a href="https://kalkulyator-yurista.github.io/" target="_blank" rel="noopener">Калькулятор юриста (госпошлина, проценты)</a>
-<a href="https://kalkulyator-mastera.github.io/" target="_blank" rel="noopener">Себестоимость услуг мастера</a>
-<span class="note">Калькулятор банкротства - скоро</span>
+<h2 style="margin:28px 0 12px">Другие калькуляторы</h2>
+<div class="more">
+<a href="https://kalkulyator-soc-kontrakta.github.io/" target="_blank" rel="noopener"><span class="ic">🤝</span><b>Социальный контракт</b><small>Сколько может дать государство на своё дело или работу</small></a>
+<a href="https://kalkulyator-yurista.github.io/" target="_blank" rel="noopener"><span class="ic">⚖️</span><b>Калькулятор юриста</b><small>Госпошлина в суд и расчёты по иску</small></a>
+<a href="https://kalkulyator-mastera.github.io/" target="_blank" rel="noopener"><span class="ic">💅</span><b>Себестоимость услуг</b><small>Сколько на самом деле зарабатывает мастер</small></a>
+<div><span class="ic">📑</span><b>Банкротство</b><small>Подходит ли вам - скоро</small></div>
 </div>
-<p class="note">Расчёт ориентировочный и не является финансовой консультацией: точные суммы досрочного погашения смотрите в приложении банка на дату платежа.</p>
-</div>
+<p class="note" style="margin-top:20px">🔒 Документы читаются прямо на вашем устройстве. Для PDF и фото страница один раз скачивает программу распознавания с публичного сервера - ваши файлы при этом не передаются. Счётчиков посещений нет. Расчёт ориентировочный и не является финансовой консультацией: точные суммы досрочного погашения смотрите в приложении банка.</p>
+</main>
 
 <script src="engine.js"></script>
 <script src="parser.js"></script>

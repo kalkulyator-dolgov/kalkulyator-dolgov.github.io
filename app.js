@@ -84,30 +84,34 @@
   }
 
   // ---------- карточки долгов ----------
+  const ICONS = { loan: '💵', card: '💳', installment: '🛍', bnpl: '🧩', mfo: '⚡', mortgage: '🏠', auto: '🚗', overdraft: '🏦', overdue: '⏰', private: '🤝' };
+  function fld(label, k, val, unit, cls, extra) {
+    return `<label class="fld">${label}<span class="box"><input class="${cls || ''}" data-k="${k}" type="number" min="0" inputmode="decimal" ${extra || ''} value="${esc(val)}">${unit ? `<span class="unit">${unit}</span>` : ''}</span></label>`;
+  }
   function debtCard(d) {
     const t = E.TYPES[d.type];
     const opts = Object.keys(E.TYPES).map(k => `<option value="${k}"${k === d.type ? ' selected' : ''}>${E.TYPES[k].title}</option>`).join('');
     const s = d._sources || {};
-    const lowCls = k => s[k] && s[k].confidence !== 'высокая' ? ' low' : '';
+    const lowCls = k => s[k] && s[k].confidence !== 'высокая' ? 'low' : '';
     const grace = GRACE_TYPES.includes(d.type)
-      ? `<label class="chk"><input type="checkbox" data-k="grace"${d.grace ? ' checked' : ''}> Гашу весь долг в льготный период (проценты не платятся)</label>`
+      ? `<label class="chk"><input type="checkbox" data-k="grace"${d.grace ? ' checked' : ''}> Гашу весь долг в льготный период - проценты не плачу</label>`
       : '';
-    const rateLabel = d.type === 'card' ? 'Ставка вне льготного периода, % годовых' : (d.type === 'mfo' ? 'Ставка, % годовых (0,8% в день = 292%)' : 'Ставка, % годовых');
-    const srcs = Object.keys(s).length ? '<div class="src">' + Object.keys(s).map(k => `<div><b>${esc(LABELS[k] || k)}:</b> ${esc(k === 'type' && E.TYPES[s[k].value] ? E.TYPES[s[k].value].title : s[k].value)} - «${esc(s[k].quote)}»${s[k].note ? ' - ' + esc(s[k].note) : ''}${s[k].confidence !== 'высокая' ? ' (проверьте)' : ''}</div>`).join('') +
+    const rateLabel = d.type === 'card' ? 'Ставка без льготы' : (d.type === 'mfo' ? 'Ставка годовых (0,8% в день = 292%)' : 'Ставка');
+    const srcs = Object.keys(s).length ? '<div class="src">🔎 Откуда взято:' + Object.keys(s).map(k => `<div><b>${esc(LABELS[k] || k)}:</b> ${esc(k === 'type' && E.TYPES[s[k].value] ? E.TYPES[s[k].value].title : s[k].value)} - «${esc(s[k].quote)}»${s[k].note ? ' - ' + esc(s[k].note) : ''}${s[k].confidence !== 'высокая' ? ' (проверьте)' : ''}</div>`).join('') +
       (d._rateIsPsk ? '<div><b>Внимание:</b> ставка не найдена, подставлена ПСК - она выше реальной ставки, уточните.</div>' : '') + '</div>' : '';
     return `<div class="debt${d.check ? ' check' : ''}" data-id="${esc(d.id)}">
-<h3><span>${esc(d.name || t.title)}${d.origin ? ' <span class="note">из файла ' + esc(d.origin) + '</span>' : ''}</span>
-<span class="row">${d.check ? '<button data-act="ok">Проверено</button>' : ''}<button data-act="del" title="Удалить">✕</button></span></h3>
+<div class="top"><b><span class="ico">${ICONS[d.type] || '💵'}</span>${esc(d.name || t.title)}${d.origin ? ' <span class="note">из файла ' + esc(d.origin) + '</span>' : ''}</b>
+<span class="row">${d.check ? '<button class="btn" data-act="ok" style="padding:6px 12px">✓ Проверено</button>' : ''}<button class="x" data-act="del" title="Удалить">✕</button></span></div>
 <div class="grid">
-<label class="f">Тип<select data-k="type">${opts}</select></label>
-<label class="f">Название<input data-k="name" value="${esc(d.name)}"></label>
-<label class="f">Остаток долга, ₽<input class="${lowCls('balance')}" data-k="balance" type="number" min="0" value="${esc(d.balance)}"></label>
-<label class="f">${rateLabel}<input class="${lowCls('rate')}" data-k="rate" type="number" min="0" step="0.01" value="${esc(d.rate)}"></label>
-<label class="f">Платёж в месяц, ₽<input class="${lowCls('payment')}" data-k="payment" type="number" min="0" value="${esc(d.payment)}"></label>
-<label class="f">Осталось месяцев (если платёж неизвестен)<input data-k="months" type="number" min="0" value="${esc(d.months)}"></label>
+<label class="fld">Тип<span class="box"><select data-k="type">${opts}</select></span></label>
+<label class="fld">Название<span class="box"><input data-k="name" style="padding-right:14px" value="${esc(d.name)}"></span></label>
+${fld('Остаток долга', 'balance', d.balance, '₽', lowCls('balance'))}
+${fld(rateLabel, 'rate', d.rate, '%', lowCls('rate'), 'step="0.01"')}
+${fld('Платёж в месяц', 'payment', d.payment, '₽', lowCls('payment'))}
+${fld('Осталось (если платёж неизвестен)', 'months', d.months, 'мес')}
 </div>
-<div class="row" style="margin-top:8px">${grace}
-<label class="chk"><input type="checkbox" data-k="prepay"${d.prepay !== false ? ' checked' : ''}> Можно гасить досрочно</label></div>
+${grace}
+<label class="chk"><input type="checkbox" data-k="prepay"${d.prepay !== false ? ' checked' : ''}> Можно гасить досрочно</label>
 ${srcs}</div>`;
   }
 
@@ -119,11 +123,13 @@ ${srcs}</div>`;
     const el = e.target, card = el.closest('.debt'); if (!card || !el.dataset.k) return;
     const d = state.debts.find(x => x.id == card.dataset.id), k = el.dataset.k;
     d[k] = el.type === 'checkbox' ? el.checked : el.value;
-    if (k === 'type') {
-      const oldTitle = Object.values(E.TYPES).find(t => (d.name || '').endsWith(t.title));
-      d.prepay = E.TYPES[d.type].prepay;
-      if (!d.name) d.name = E.TYPES[d.type].title;
-      else if (oldTitle) d.name = d.name.slice(0, d.name.length - oldTitle.title.length) + E.TYPES[d.type].title;
+    if (k === 'type' || k === 'grace') {
+      if (k === 'type') {
+        const oldTitle = Object.values(E.TYPES).find(t => (d.name || '').endsWith(t.title));
+        d.prepay = E.TYPES[d.type].prepay;
+        if (!d.name) d.name = E.TYPES[d.type].title;
+        else if (oldTitle) d.name = d.name.slice(0, d.name.length - oldTitle.title.length) + E.TYPES[d.type].title;
+      }
       renderDebts();
     }
     if (k === 'rate' && d.type === 'mfo') delete d.dailyRate;
@@ -139,54 +145,77 @@ ${srcs}</div>`;
   });
 
   // ---------- расчёт ----------
+  const COLORS = ['#94a3b8', '#4f46e5', '#f59e0b', '#10b981'];
   function chart(strats) {
-    const W = 640, H = 220, pad = 36;
+    const W = 640, H = 230, pad = 44;
     const maxM = Math.min(Math.max(...strats.map(s => s.balances.length)), 600);
     const maxB = Math.max(...strats.map(s => s.balances[0] || 0), 1);
-    const colors = ['#8b949e', '#1f6feb', '#bf8700', '#1a7f37'];
-    const x = m => pad + (W - pad - 8) * m / Math.max(maxM, 1), y = b => H - 22 - (H - 34) * b / maxB;
-    const lines = strats.map((s, i) => `<polyline fill="none" stroke="${colors[i % 4]}" stroke-width="2" points="${s.balances.map((b, m) => x(m + 1).toFixed(1) + ',' + y(b).toFixed(1)).join(' ')}"/>`).join('');
-    const leg = strats.map((s, i) => `<span style="color:${colors[i % 4]}">■</span> ${esc(s.title)}`).join(' &nbsp; ');
-    return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Остаток долга по месяцам">
-<line x1="${pad}" y1="${H - 22}" x2="${W - 8}" y2="${H - 22}" stroke="currentColor" opacity=".2"/>
-<text x="0" y="14">${fmt(maxB / 1000)} тыс.</text><text x="${pad}" y="${H - 6}">сейчас</text><text x="${W - 70}" y="${H - 6}">${yrs(maxM)}</text>${lines}</svg><div class="note">${leg}</div>`;
+    const x = m => pad + (W - pad - 10) * m / Math.max(maxM, 1), y = b => H - 26 - (H - 40) * b / maxB;
+    const grid = [0.25, 0.5, 0.75, 1].map(f => `<line x1="${pad}" x2="${W - 10}" y1="${y(maxB * f)}" y2="${y(maxB * f)}" stroke="currentColor" opacity=".08"/><text x="2" y="${y(maxB * f) + 4}">${fmt(maxB * f / 1000)}к</text>`).join('');
+    const paths = strats.map((s, i) => {
+      const pts = [[x(0), y(s.balances[0] ? maxB : 0)]].concat(s.balances.map((b, m) => [x(m + 1), y(b)]));
+      const line = pts.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+      const area = i === 1 ? `<polygon fill="url(#g)" points="${line} ${pts[pts.length - 1][0].toFixed(1)},${y(0)} ${x(0)},${y(0)}"/>` : '';
+      return area + `<polyline fill="none" stroke="${COLORS[i % 4]}" stroke-width="${i === 1 ? 3 : 2}" stroke-linejoin="round" points="${line}"/>`;
+    }).join('');
+    const leg = strats.map((s, i) => `<span style="color:${COLORS[i % 4]}">●</span> ${esc(s.title)}`).join(' &nbsp; ');
+    return `<div class="chart"><b style="font-size:14px">Как тает долг</b><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Остаток долга по месяцам" style="color:var(--ink)">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f46e5" stop-opacity=".28"/><stop offset="1" stop-color="#4f46e5" stop-opacity="0"/></linearGradient></defs>
+${grid}<line x1="${pad}" y1="${y(0)}" x2="${W - 10}" y2="${y(0)}" stroke="currentColor" opacity=".2"/>
+<text x="${pad}" y="${H - 8}">сейчас</text><text x="${W - 60}" y="${H - 8}">${yrs(maxM)}</text>${paths}</svg><div class="note">${leg}</div></div>`;
   }
 
   function calc() {
     const debts = state.debts.map(d => ({ ...d, balance: +d.balance || 0, rate: +d.rate || 0, payment: +d.payment || 0, months: +d.months || 0 }));
-    if (!debts.some(d => d.balance > 0)) { $('res').innerHTML = '<p class="note">Добавьте хотя бы один долг.</p>'; $('freeNote').textContent = ''; return; }
+    if (!debts.some(d => d.balance > 0)) {
+      $('res').innerHTML = '<div class="empty"><div class="ic">🧭</div><b>Внесите первый долг - и увидите план</b><p class="note">Загрузите договор или добавьте долг вручную в шаге 1.</p></div>';
+      $('freeNote').textContent = ''; return;
+    }
     const refi = +state.refi.rate > 0 ? { rate: +state.refi.rate, months: +state.refi.months || 60, feePct: +state.refi.fee || 0 } : null;
     const extra = (+state.extra || 0);
     const c = E.compare({ debts, extra, income: +state.income || 0, cashback: +state.cashback || 0, expenses: +state.expenses || 0, refi });
     $('freeNote').textContent = c.free == null ? '' : (c.free >= 0
-      ? `После платежей по графику остаётся около ${fmt(c.free)} ₽ в месяц.` + (extra > c.free ? ' Доплата больше этой суммы - проверьте, хватит ли денег на жизнь.' : '')
-      : `Платежей больше, чем остаётся после расходов, на ${fmt(-c.free)} ₽ в месяц.`);
+      ? `💡 После платежей по графику остаётся около ${fmt(c.free)} ₽ в месяц.` + (extra > c.free ? ' Доплата больше этой суммы - проверьте, хватит ли денег на жизнь.' : '')
+      : `⚠️ Платежей больше, чем остаётся после расходов, на ${fmt(-c.free)} ₽ в месяц.`);
     const base = c.strategies[0];
     const hasM = debts.some(d => d.type === 'mortgage');
-    let h = '<div class="stat">';
-    h += `<div><span>Платежи в первый месяц</span><b>${fmt(base.firstPay)} ₽</b></div>`;
-    if (c.pdn != null) h += `<div><span>Долговая нагрузка (ПДН)</span><b style="color:${c.pdn > 80 ? 'var(--bad)' : c.pdn > 50 ? 'var(--warn)' : 'var(--good)'}">${c.pdn.toFixed(0)}%</b></div>`;
-    h += `<div><span>Всего долгов</span><b>${fmt(debts.reduce((s, d) => s + d.balance, 0))} ₽</b></div></div>`;
-    h += `<div class="tbl"><table class="st"><tr><th>Стратегия</th><th class="n">Без долгов через</th>${hasM ? '<th class="n">Без долгов кроме ипотеки</th>' : ''}<th class="n">Процентов заплатите</th><th class="n">Самый тяжёлый месяц</th></tr>`;
-    for (const s of c.strategies) {
-      const best = s.key === c.bestKey;
-      h += `<tr${best ? ' class="best"' : ''}><td><b>${esc(s.title)}</b>${best ? ' <span class="tag">меньше всего процентов</span>' : ''}<div class="note">${esc(s.note)}</div></td>
-<td class="n" data-l="Без долгов через">${s.finished ? yrs(s.months) : 'больше 50 лет'}</td>${hasM ? `<td class="n" data-l="Без долгов кроме ипотеки">${yrs(s.monthsNonMortgage)}</td>` : ''}
-<td class="n" data-l="Процентов заплатите">${fmt(s.interest)} ₽${s.key !== 'base' ? `<div class="note">экономия ${fmt(base.interest - s.interest)} ₽</div>` : ''}</td><td class="n" data-l="Самый тяжёлый месяц">${fmt(s.maxPay)} ₽</td></tr>`;
+    const free = s => hasM ? s.monthsNonMortgage : s.months;
+    const best = c.strategies.find(s => s.key === c.bestKey);
+    let h = '';
+    if (best && best.key !== 'base') {
+      h += `<div class="hero-result"><div class="lbl">Лучший путь для вас</div><div class="big">${esc(best.title)}</div><div class="kpis">
+<div><span>${hasM ? 'Без долгов, кроме ипотеки, через' : 'Без долгов через'}</span><b>${yrs(free(best))}</b></div>
+<div><span>Сэкономите на процентах</span><b>${fmt(base.interest - best.interest)} ₽</b></div>
+<div><span>Быстрее, чем по графику</span><b>${yrs(Math.max(0, free(base) - free(best)))}</b></div></div></div>`;
+    } else if (extra <= 0) {
+      h += `<div class="alert ok">Укажите в шаге 2, сколько готовы доплачивать в месяц, - и калькулятор покажет, как быстрее выйти из долгов.</div>`;
     }
-    h += '</table></div>' + chart(c.strategies);
+    h += '<div class="kpi-row">';
+    h += `<div class="kpi"><span>Всего долгов</span><b>${fmt(debts.reduce((s, d) => s + d.balance, 0))} ₽</b></div>`;
+    h += `<div class="kpi"><span>Платежи в первый месяц</span><b>${fmt(base.firstPay)} ₽</b></div>`;
+    if (c.pdn != null) h += `<div class="kpi"><span>Долговая нагрузка (ПДН)</span><b style="color:${c.pdn > 80 ? 'var(--bad)' : c.pdn > 50 ? 'var(--warn)' : 'var(--good)'}">${c.pdn.toFixed(0)}%</b></div>`;
+    h += '</div><div class="opts">';
+    for (const s of c.strategies) {
+      const isBest = s.key === c.bestKey && s.key !== 'base';
+      h += `<div class="opt${isBest ? ' best' : ''}">${isBest ? '<span class="rib">выгоднее всего</span>' : ''}
+<h3>${esc(s.title)}</h3><div class="d">${esc(s.note)}</div><dl>
+<dt>${hasM ? 'Без долгов (кроме ипотеки)' : 'Без долгов через'}</dt><dd>${s.finished || hasM ? yrs(free(s)) : 'больше 50 лет'}</dd>
+<dt>Проценты</dt><dd>${fmt(s.interest)} ₽</dd>
+${s.key !== 'base' ? `<dt>Экономия</dt><dd style="color:var(--good)">${fmt(base.interest - s.interest)} ₽</dd>` : ''}
+<dt>Самый тяжёлый месяц</dt><dd>${fmt(s.maxPay)} ₽</dd></dl></div>`;
+    }
+    h += '</div>' + chart(c.strategies);
     const order = c.strategies.find(s => s.key === 'avalanche');
     if (order) {
       const seqd = order.debts.filter(d => d.prepay).sort((a, b) => (a.end || 1e9) - (b.end || 1e9));
-      h += `<p><b>Порядок закрытия по лавине:</b> ${seqd.map(d => esc(d.name) + ' (' + yrs(d.end) + ')').join(' → ')}</p>`;
+      if (seqd.length) h += `<b style="font-size:14px">Порядок закрытия по лавине</b><div class="order">${seqd.map((d, i) => `<span>${i + 1}. ${esc(d.name)} - ${yrs(d.end)}</span>`).join('')}</div>`;
     }
-    if (c.graceDebts.length) h += `<div class="warn"><b>Не входят в план - без процентов, пока соблюдаете льготный период:</b> ${c.graceDebts.map(d => esc(d.name) + ' ' + fmt(d.balance) + ' ₽').join(', ')}. Досрочно раньше дорогих кредитов не гасить.</div>`;
-    for (const w of c.warnings) h += `<div class="warn">${esc(w)}</div>`;
+    if (c.graceDebts.length) h += `<div class="alert ok"><span><b>Без процентов, пока соблюдаете льготный период:</b> ${c.graceDebts.map(d => esc(d.name) + ' ' + fmt(d.balance) + ' ₽').join(', ')}. Их не нужно гасить раньше дорогих кредитов.</span></div>`;
+    for (const w of c.warnings) h += `<div class="alert"><span>${esc(w)}</span></div>`;
     if ((c.pdn != null && c.pdn > 80) || !base.finished || base.monthsNonMortgage > 84)
-      h += '<div class="warn"><b>Нагрузка очень высокая.</b> Узнайте про кредитные каникулы и реструктуризацию в банке. Если выплатить невозможно - стоит оценить банкротство (калькулятор готовится).</div>';
+      h += '<div class="alert"><span><b>Нагрузка очень высокая.</b> Узнайте про кредитные каникулы и реструктуризацию в банке. Если выплатить невозможно - стоит оценить банкротство (калькулятор готовится).</span></div>';
     $('res').innerHTML = h;
   }
-
   // ---------- общие поля, сохранение ----------
   function bindTop() {
     const map = { income: 'income', expenses: 'expenses', extra: 'extra', cashback: 'cashback' };
