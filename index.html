@@ -23,6 +23,8 @@ svg text{fill:var(--mute);font-size:11px}
 table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}td.n,th.n{text-align:right;white-space:nowrap}
 .order{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0 12px}.order span{background:var(--soft);border-radius:999px;padding:4px 10px;font-size:13px}
 </style>
+<link rel="stylesheet" href="telegram-contact.css">
+<script src="telegram-contact.js" defer></script>
 </head>
 <body>
 <header class="hero"><div class="in">
@@ -81,7 +83,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;b
 <button class="btn ghost" id="clear">🗑 Очистить</button>
 <label class="chk" style="margin:0"><input type="checkbox" id="remember"> Помнить в этом браузере</label>
 </div>
-<p style="margin:14px 0 0">🤝 Хотите, чтобы человек посмотрел вашу ситуацию? <a href="https://vk.ru/pyankov_vv" target="_blank" rel="noopener"><b>Написать мне</b></a></p>
+<p style="margin:14px 0 0">🤝 Хотите, чтобы человек посмотрел вашу ситуацию? <a href="https://t.me/pyankov_vv?text=%D0%9F%D0%B8%D1%88%D1%83%20%D1%81%D0%BE%20%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B%20%C2%AB%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20%D0%BF%D0%BE%D0%B3%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D0%B2%C2%BB.%0A%D0%A2%D0%B5%D0%BC%D0%B0%3A%20%D0%9A%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D1%8B%20%D0%B8%20%D0%BF%D0%BE%D0%B3%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D0%B2.%0A%0A%D0%A7%D1%82%D0%BE%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C%20%D0%B2%20%D0%B2%D1%8B%D0%BF%D0%BB%D0%B0%D1%82%D0%B0%D1%85%3A%20%0A%D0%9C%D0%BE%D0%B9%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%3A%20" rel="noopener">Написать в Telegram</a></p>
 </section>
 
 <h2 style="margin:28px 0 12px">Другие калькуляторы</h2>
@@ -93,6 +95,21 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;b
 </div>
 <p class="note" style="margin-top:20px">🔒 Документы читаются прямо на вашем устройстве. Для PDF и фото страница один раз скачивает программу распознавания с публичного сервера - ваши файлы при этом не передаются. Счётчиков посещений нет. Расчёт ориентировочный и не является финансовой консультацией: точные суммы досрочного погашения смотрите в приложении банка.</p>
 </main>
+<section class="tg-first-message" aria-labelledby="tg-contact-title">
+<h2 id="tg-contact-title">Разобрать ситуацию с человеком</h2>
+<a class="tg-button" href="https://t.me/pyankov_vv?text=%D0%9F%D0%B8%D1%88%D1%83%20%D1%81%D0%BE%20%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B%20%C2%AB%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20%D0%BF%D0%BE%D0%B3%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D0%B2%C2%BB.%0A%D0%A2%D0%B5%D0%BC%D0%B0%3A%20%D0%9A%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D1%8B%20%D0%B8%20%D0%BF%D0%BE%D0%B3%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D0%B2.%0A%0A%D0%A7%D1%82%D0%BE%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C%20%D0%B2%20%D0%B2%D1%8B%D0%BF%D0%BB%D0%B0%D1%82%D0%B0%D1%85%3A%20%0A%D0%9C%D0%BE%D0%B9%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%3A%20" rel="noopener">Написать в Telegram</a>
+<p>Откроется чат с @pyankov_vv и черновик по теме «Кредиты и погашение долгов». Допишите свои данные и нажмите «Отправить».</p>
+<details><summary>Посмотреть и скопировать текст сообщения</summary>
+<pre data-tg-draft>Пишу со страницы «Калькулятор погашения долгов».
+Тема: Кредиты и погашение долгов.
+
+Что хочу изменить в выплатах:&#32;
+Мой вопрос: </pre>
+<button type="button" data-tg-copy hidden>Скопировать текст</button>
+<span class="tg-copy-status" role="status" aria-live="polite"></span>
+</details><p>Если Telegram не подставил текст, скопируйте его отсюда. Для первого сообщения не нужны паспортные данные или номера договоров.</p>
+</section>
+
 
 <script src="engine.js"></script>
 <script src="parser.js"></script>
