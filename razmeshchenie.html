@@ -41,7 +41,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
 .list{max-height:34vh;overflow:auto;padding-right:2px}
 table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:5px 5px;border-bottom:1px solid var(--line);text-align:left}td.n,th.n{text-align:right;white-space:nowrap}
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px}
-.opt{border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;background:var(--card)}.opt.best{border-color:var(--good);box-shadow:0 0 0 3px color-mix(in srgb,var(--good) 14%,transparent)}
+.opt{min-width:0;border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;background:var(--card)}.opt.best{border-color:var(--good);box-shadow:0 0 0 3px color-mix(in srgb,var(--good) 14%,transparent)}
 .opt h3{margin:0 0 6px;font-size:15px}
 .kpi-row{grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
 .kpi{padding:6px 8px;border-radius:10px}.kpi span{font-size:11px}.kpi b{font-size:15px;white-space:nowrap}
@@ -62,7 +62,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:5px 5px;b
 @media (max-width:999px){
   .app{grid-template-columns:minmax(0,1fr);padding:8px}
   .pane{overflow:visible}.list{max-height:none}.kpi-row{grid-template-columns:repeat(2,1fr)}
-  .cols{grid-template-columns:1fr}
+  .cols{grid-template-columns:minmax(0,1fr)}
 }
 </style>
 <link rel="stylesheet" href="telegram-contact.css">
