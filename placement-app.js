@@ -159,6 +159,44 @@ ${bankTable(ev)}<p class="note">Налог по годам</p>${taxTable(ev)}</d
       return true;
     } catch (e) { return false; }
   }
+  // ---- живые ставки: rates.json собирает облако раз в сутки ----
+  let rates = null, picks = [];
+  function pickRates() {
+    if (!rates) return [];
+    const kind = $('rKind').value, online = $('rOnline').checked, top = Math.max(1, Math.min(30, +$('rTop').value || 8));
+    const best = new Map();
+    rates.offers.forEach(o => {
+      if (o.term > state.horizon) return;
+      if (kind === 'acc' && o.kind !== 'accumulative') return;
+      if (kind === 'dep' && o.kind !== 'deposit') return;
+      if (online && !o.online) return;
+      const cur = best.get(o.bank);
+      if (!cur || o.rate > cur.rate) best.set(o.bank, o);
+    });
+    return [...best.values()].sort((a, b) => b.rate - a.rate).slice(0, top);
+  }
+  function renderRates() {
+    picks = pickRates();
+    $('ratesList').innerHTML = picks.length ? '<table><thead><tr><th>Банк, продукт</th><th class="n">Срок</th><th class="n">Ставка</th></tr></thead><tbody>' +
+      picks.map(o => `<tr><td>${esc(o.bank)}, ${esc(o.name)}</td><td class="n">${o.term ? o.term + ' мес' : 'в любой момент'}</td><td class="n">${pct(o.rate)}</td></tr>`).join('') + '</tbody></table>' : '<div class="empty">Нет подходящих предложений</div>';
+    $('addRates').disabled = !picks.length;
+  }
+  function loadRates() {
+    fetch('rates.json?' + Date.now()).then(r => r.json()).then(j => {
+      rates = j; const d = new Date(j.updated);
+      $('ratesDate').textContent = 'на ' + d.toLocaleDateString('ru-RU') + ', ' + j.count + ' предложений';
+      renderRates();
+    }).catch(() => { $('ratesDate').textContent = 'не удалось загрузить'; });
+  }
+  ['rKind', 'rTop', 'rOnline'].forEach(id => $(id).addEventListener('input', renderRates));
+  $('horizon').addEventListener('input', renderRates);
+  $('addRates').onclick = () => {
+    state.offers = state.offers.filter(o => !/ПРИМЕР/i.test(o.bank + o.name));
+    picks.forEach(o => state.offers.push({ id: seq++, bank: o.bank, name: o.name, rate: o.rate, term: o.term, maxAmount: '', cap: !!o.cap, taxable: o.rate > 1 }));
+    renderLists(); calc();
+    $('result').scrollIntoView({ behavior: 'smooth' });
+  };
+  loadRates();
   try { const s = localStorage.getItem(KEY); if (s) { state = sanitize(JSON.parse(s)); $('remember').checked = true; } } catch (e) { }
   init();
   fromHash().then(ok => { if (ok) init(); });

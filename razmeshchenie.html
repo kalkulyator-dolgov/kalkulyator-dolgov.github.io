@@ -61,6 +61,17 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;b
 <section class="step">
 <h2><span class="num">3</span>Куда можно разместить</h2>
 <p class="sub">Ставки возьмите из приложений банков на сегодня - они меняются, поэтому калькулятор их сам не подставляет.</p>
+<div class="hold" id="rates">
+<div class="top"><b>Живые ставки банков</b><span class="src" id="ratesDate" style="margin:0">загружаю...</span></div>
+<div class="grid">
+<label class="fld">Какие брать<span class="box"><select id="rKind"><option value="any">Вклады и накопительные счета</option><option value="acc">Только в любой момент (счета)</option><option value="dep">Только срочные вклады</option></select></span></label>
+<label class="fld">Сколько банков показать<span class="box"><input id="rTop" type="number" min="1" max="30" step="1" value="8"></span></label>
+</div>
+<div class="flags"><label class="chk"><input type="checkbox" id="rOnline" checked> только с открытием онлайн</label></div>
+<div id="ratesList" class="tw"></div>
+<div class="addrow"><button class="btn" id="addRates" disabled>+ Добавить эти предложения</button></div>
+<p class="src">Ставки собираются автоматически раз в сутки с sravni.ru для суммы 1 млн ₽ и могут отличаться у банка; это максимум «до», часто для новых клиентов. Перед открытием проверьте условия в банке.</p>
+</div>
 <div id="offers"></div>
 <div class="addrow"><button class="btn" id="addOffer">+ Добавить предложение банка</button></div>
 </section>
