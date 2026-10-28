@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор размещения денег</title>
+<meta name="description" content="Как разложить деньги по банкам так, чтобы каждый был под защитой АСВ, а налог на проценты был понятен заранее. Данные не покидают ваш браузер.">
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--brand:#4f46e5;--brand2:#06b6d4}
+.tabs{display:flex;gap:8px;margin:0 0 18px}
+.tabs a{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 14px;color:#fff;text-decoration:none;font-weight:700;font-size:14px}
+.tabs a.on{background:#fff;color:var(--brand)}
+.hold{border:1.5px solid var(--line);border-radius:16px;padding:14px;margin:0 0 10px;background:var(--card)}
+.hold .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.hold .top b{font-size:15px}
+.hold .x{background:none;border:0;font-size:18px;color:var(--mute);cursor:pointer;padding:4px 8px}
+.flags{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px}
+.chk{display:flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}.chk input{width:18px;height:18px;accent-color:var(--brand)}
+.addrow{display:flex;gap:10px;margin-top:6px}.addrow .btn{width:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}td.n,th.n{text-align:right;white-space:nowrap}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.opt{border:1.5px solid var(--line);border-radius:16px;padding:14px;background:var(--card)}.opt.best{border-color:var(--good);box-shadow:0 0 0 3px color-mix(in srgb,var(--good) 14%,transparent)}
+.opt h3{margin:0 0 8px;font-size:16px}
+.bar{height:10px;border-radius:6px;background:var(--line);overflow:hidden;min-width:70px}.bar i{display:block;height:100%;background:var(--good)}.bar i.bad{background:var(--bad)}
+.tw{overflow-x:auto}
+.src{font-size:12px;color:var(--mute);margin-top:10px}
+</style>
+<link rel="stylesheet" href="telegram-contact.css">
+<script src="telegram-contact.js" defer></script>
+</head>
+<body>
+<header class="hero"><div class="in">
+<nav class="tabs"><a href="index.html">💳 Долги</a><a href="razmeshchenie.html" class="on">💰 Размещение денег</a></nav>
+<h1>Разложите деньги по банкам безопасно и выгодно</h1>
+<p>Внесите, где и под какие проценты лежат деньги. Калькулятор покажет, что покрыто страхованием АСВ, сколько вы заплатите налога на проценты и как разложить деньги лучше.</p>
+<div class="chips"><span class="chip">🔒 Данные не покидают браузер</span><span class="chip">🛡 Лимит АСВ по каждому банку</span><span class="chip">🧾 НДФЛ на проценты</span><span class="chip">⏱ 5 минут</span></div>
+</div></header>
+
+<main class="wrap">
+<section class="step">
+<h2><span class="num">1</span>Что у вас сейчас</h2>
+<p class="sub">Каждый вклад, накопительный счёт или остаток на карте с процентами - отдельной карточкой.</p>
+<div id="holds"></div>
+<div class="addrow"><button class="btn" id="addHold">+ Добавить вклад или счёт</button></div>
+</section>
+
+<section class="step">
+<h2><span class="num">2</span>Условия</h2>
+<div class="grid">
+<label class="fld">Новые деньги к размещению<span class="box"><input id="newMoney" type="number" min="0" step="10000" inputmode="decimal" placeholder="0"><span class="unit">₽</span></span></label>
+<label class="fld">Должно быть доступно в любой момент<span class="box"><input id="liquid" type="number" min="0" step="10000" inputmode="decimal" placeholder="300 000"><span class="unit">₽</span></span></label>
+<label class="fld">Горизонт<span class="box"><select id="horizon"><option value="6">6 месяцев</option><option value="12" selected>12 месяцев</option><option value="14">14 месяцев (до конца 2027)</option><option value="24">24 месяца</option></select></span></label>
+<label class="fld">Проценты, уже полученные в 2026 до сегодня<span class="box"><input id="prior2026" type="number" min="0" step="1000" inputmode="decimal" placeholder="0"><span class="unit">₽</span></span></label>
+<label class="fld">Прочие доходы в год (зарплата и др.)<span class="box"><input id="otherIncome" type="number" min="0" step="10000" inputmode="decimal" placeholder="0"><span class="unit">₽</span></span></label>
+<label class="fld">Макс. ключевая ставка 2027 (допущение)<span class="box"><input id="key2027" type="number" min="0" step="0.5" inputmode="decimal" value="15"><span class="unit">%</span></span></label>
+<label class="fld">Запас под лимитом АСВ<span class="box"><input id="reserve" type="number" min="0" max="50" step="1" inputmode="decimal" value="0"><span class="unit">%</span></span></label>
+</div>
+<p class="note">Лимит страхования - 1 400 000 ₽ на человека в одном банке, проценты входят в эту сумму. Необлагаемый процентный доход 2026 года - 1 млн ₽ x 16% = 160 000 ₽ (ставка на 1 января 2026 года). Для 2027 года ставка пока неизвестна - это допущение, его можно менять.</p>
+</section>
+
+<section class="step">
+<h2><span class="num">3</span>Куда можно разместить</h2>
+<p class="sub">Ставки возьмите из приложений банков на сегодня - они меняются, поэтому калькулятор их сам не подставляет.</p>
+<div id="offers"></div>
+<div class="addrow"><button class="btn" id="addOffer">+ Добавить предложение банка</button></div>
+</section>
+
+<section class="step" id="result">
+<h2><span class="num">4</span>Ваш план</h2>
+<p class="sub">Сравнение «как сейчас» и «безопасная раскладка». Решение принимаете вы.</p>
+<div id="res"></div>
+</section>
+
+<section class="step">
+<div class="row">
+<button class="btn ghost" id="save">💾 Сохранить в файл</button>
+<button class="btn ghost" id="load">📂 Открыть файл</button><input type="file" id="loadFile" accept=".json" hidden>
+<button class="btn ghost" id="clear">🗑 Очистить</button>
+<label class="chk" style="margin:0"><input type="checkbox" id="remember"> Помнить в этом браузере</label>
+</div>
+<p class="note" style="margin-top:14px">Это расчёт, а не инвестиционная рекомендация: он исходит из введённых вами ставок, считает ставку неизменной на весь горизонт и не знает условий конкретных продуктов (досрочное закрытие, снижение ставки, лимиты). Налог по накопленным и капитализированным процентам считается по году начисления. Источники норм: <a href="https://www.nalog.gov.ru/rn13/news/activities_fts/16626545/" target="_blank" rel="noopener">ФНС о налоге на вклады</a>, <a href="https://www.asv.org.ru/" target="_blank" rel="noopener">АСВ</a>.</p>
+</section>
+</main>
+<section class="tg-first-message" aria-labelledby="tg-contact-title">
+<h2 id="tg-contact-title">Разобрать ситуацию с человеком</h2>
+<a class="tg-button" href="https://t.me/pyankov_vv?text=%D0%9F%D0%B8%D1%88%D1%83%20%D1%81%D0%BE%20%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B%20%C2%AB%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%B5%D0%BD%D0%B5%D0%B3%C2%BB.">Написать в Telegram</a>
+<p>Откроется чат с @pyankov_vv. Допишите свою ситуацию и нажмите «Отправить». Паспортные данные и номера счетов для первого сообщения не нужны.</p>
+</section>
+<script src="placement-engine.js"></script>
+<script src="placement-app.js"></script>
+</body>
+</html>
