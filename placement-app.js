@@ -40,8 +40,10 @@ ${fld('Предел суммы (пусто = без предела)', 'maxAmount
 
   function renderLists() {
     $('holds').innerHTML = state.holds.length ? state.holds.map(holdHtml).join('') : '<div class="empty"><div class="ic">💰</div>Добавьте первый вклад или счёт</div>';
+    counts();
     $('offers').innerHTML = state.offers.length ? state.offers.map(offerHtml).join('') : '<div class="empty"><div class="ic">🏦</div>Добавьте предложения банков, куда готовы разместить деньги</div>';
   }
+  function counts() { $('holdCount').textContent = state.holds.length ? state.holds.length + ' шт.' : ''; $('offCount').textContent = state.offers.length ? state.offers.length + ' предложений' : ''; }
   function bindTop() {
     $('newMoney').value = state.newMoney; $('liquid').value = state.liquid; $('horizon').value = state.horizon;
     $('otherIncome').value = state.otherIncome; $('prior2026').value = state.prior2026; $('key2027').value = state.key2027; $('reserve').value = state.reserve;
@@ -70,6 +72,7 @@ ${fld('Предел суммы (пусто = без предела)', 'maxAmount
     return `<div class="tw"><table><tr><th>Год</th><th class="n">Проценты</th><th class="n">Не облагается</th><th class="n">Налог</th></tr>${ev.taxRows.map(r =>
       `<tr><td>${r.year}</td><td class="n">${rub(r.interest + r.exempt)}</td><td class="n">${rub(Math.min(r.interest, r.free) + r.exempt)}</td><td class="n"><b>${rub(r.tax)}</b></td></tr>`).join('')}</table></div>`;
   }
+  const det = (title, html, open) => `<details class="det"${open ? ' open' : ''}><summary>${title}</summary>${html}</details>`;
   function kpis(ev) {
     return `<div class="kpi-row"><div class="kpi"><span>Вложено</span><b>${rub(ev.principal)}</b></div><div class="kpi"><span>Проценты до налога</span><b>${rub(ev.gross)}</b></div><div class="kpi"><span>Налог НДФЛ</span><b>${rub(ev.tax)}</b></div><div class="kpi"><span>Чистый доход</span><b>${rub(ev.net)}</b><span>${pct(ev.netPct)} годовых</span></div></div>`;
   }
@@ -95,7 +98,7 @@ ${fld('Предел суммы (пусто = без предела)', 'maxAmount
     if (!holds.length && !num(state.newMoney)) { res.innerHTML = '<div class="empty"><div class="ic">📊</div>Добавьте хотя бы один вклад или сумму для размещения</div>'; return; }
     const out = [];
     let nowEv = null;
-    if (holds.length) { nowEv = E.evaluate(holds, o); out.push(`<div class="opt"><h3>Как сейчас</h3>${kpis(nowEv)}${bankTable(nowEv)}<p class="note">Налог по годам</p>${taxTable(nowEv)}</div>`); }
+    if (holds.length) { nowEv = E.evaluate(holds, o); out.push(`<div class="opt"><h3>Как сейчас</h3>${kpis(nowEv)}${det('Банки и защита АСВ', bankTable(nowEv), true)}${det('Налог по годам', taxTable(nowEv))}</div>`); }
     const total = holds.reduce((s, h) => s + h.amount, 0) + num(state.newMoney);
     let bestNet = 0;
     if (offers.length && total > 0) {
@@ -106,11 +109,11 @@ ${fld('Предел суммы (пусто = без предела)', 'maxAmount
       const lines = al.lines.map(l => `<tr><td>${esc(l.bank)}</td><td>${esc(l.name)}${l.term > 0 ? ', ' + l.term + ' мес' : ', в любой момент'}</td><td class="n">${pct(l.rate)}</td><td class="n"><b>${rub(l.amount)}</b></td></tr>`).join('');
       const better = nowEv ? ev.net - nowEv.net : 0;
       out.push(`<div class="opt best"><h3>Безопасная раскладка</h3>${kpis(ev)}
-<div class="tw"><table><tr><th>Банк</th><th>Куда</th><th class="n">Ставка</th><th class="n">Сумма</th></tr>${lines}</table></div>
+<div class="tw" style="max-height:36vh;overflow:auto"><table><tr><th>Банк</th><th>Куда</th><th class="n">Ставка</th><th class="n">Сумма</th></tr>${lines}</table></div>
 ${al.unplaced > 1 ? `<div class="alert">Не хватает места: ${rub(al.unplaced)} не удалось разместить в рамках лимита ${rub(o.asvLimit)} на банк. Добавьте ещё банк или предложение.</div>` : '<div class="alert ok">Все деньги лежат в пределах страховой суммы АСВ вместе с процентами.</div>'}
 ${al.liquidUnplaced > 1 ? `<div class="alert">Для суммы «доступно в любой момент» не нашлось предложений без срока: ${rub(al.liquidUnplaced)}.</div>` : ''}
 ${nowEv ? `<p style="margin:10px 0 0">Разница с текущим положением по чистому доходу за ${state.horizon} мес: <b style="color:${better >= 0 ? 'var(--good)' : 'var(--bad)'}">${better >= 0 ? '+' : ''}${rub(better)}</b>${nowEv.uncovered > 0.5 ? ` · без защиты было ${rub(nowEv.uncovered)}, стало ${rub(ev.uncovered)}` : ''}</p>` : ''}
-${bankTable(ev)}<p class="note">Налог по годам</p>${taxTable(ev)}</div>`);
+${det('Банки и защита АСВ', bankTable(ev))}${det('Налог по годам', taxTable(ev))}</div>`);
     } else if (!offers.length) {
       out.push('<p class="note">Чтобы получить раскладку, добавьте на шаге 3 предложения банков с их ставками.</p>');
     }

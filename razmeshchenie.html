@@ -8,95 +8,145 @@
 <link rel="stylesheet" href="style.css">
 <style>
 :root{--brand:#4f46e5;--brand2:#06b6d4}
-.tabs{display:flex;gap:8px;margin:0 0 18px}
-.tabs a{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 14px;color:#fff;text-decoration:none;font-weight:700;font-size:14px}
+/* Рабочий экран: на компьютере всё помещается в одно окно, длинное прячется в раскрывающиеся блоки */
+body{display:flex;flex-direction:column;min-height:100vh}
+.topbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;padding:8px 14px;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand2))}
+.topbar h1{font-size:17px;line-height:1.2;margin:0;font-weight:800;flex:1 1 260px}
+.tabs{display:flex;gap:6px}
+.tabs a{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:4px 12px;color:#fff;text-decoration:none;font-weight:700;font-size:13px}
 .tabs a.on{background:#fff;color:var(--brand)}
-.hold{border:1.5px solid var(--line);border-radius:16px;padding:14px;margin:0 0 10px;background:var(--card)}
-.hold .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.hold .top b{font-size:15px}
-.hold .x{background:none;border:0;font-size:18px;color:var(--mute);cursor:pointer;padding:4px 8px}
-.flags{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px}
-.chk{display:flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}.chk input{width:18px;height:18px;accent-color:var(--brand)}
-.addrow{display:flex;gap:10px;margin-top:6px}.addrow .btn{width:auto}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}td.n,th.n{text-align:right;white-space:nowrap}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
-.opt{border:1.5px solid var(--line);border-radius:16px;padding:14px;background:var(--card)}.opt.best{border-color:var(--good);box-shadow:0 0 0 3px color-mix(in srgb,var(--good) 14%,transparent)}
-.opt h3{margin:0 0 8px;font-size:16px}
-.bar{height:10px;border-radius:6px;background:var(--line);overflow:hidden;min-width:70px}.bar i{display:block;height:100%;background:var(--good)}.bar i.bad{background:var(--bad)}
+.topbar .priv{font-size:12px;opacity:.9}
+.app{display:grid;grid-template-columns:minmax(360px,32%) 1fr;gap:10px;padding:10px 14px;flex:1;min-height:0}
+.pane{min-height:0;overflow:auto}
+.blk{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 8px;box-shadow:var(--shadow)}
+.blk>summary{list-style:none;display:flex;align-items:center;gap:8px;padding:9px 12px;font-weight:800;color:var(--ink);font-size:15px}
+.blk>summary::-webkit-details-marker{display:none}
+.blk>summary:after{content:"▾";margin-left:auto;color:var(--mute);transition:transform .15s}
+.blk[open]>summary:after{transform:rotate(180deg)}
+.blk>summary .num{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-size:12px}
+.blk>summary .hint{font-weight:600;font-size:12px;color:var(--mute)}
+.blk>.in{padding:0 12px 12px}
+.blk .grid{grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.blk .fld{font-size:12px;gap:3px}
+.blk .fld input,.blk .fld select{height:36px;font-size:15px;border-radius:10px;padding:0 34px 0 10px}
+.blk .fld select{padding-right:8px}
+.blk .fld .unit{right:10px;font-size:13px}
+.hold{border:1.5px solid var(--line);border-radius:12px;padding:8px 10px;margin:0 0 8px;background:var(--card)}
+.hold .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.hold .top b{font-size:13px}
+.hold .x{background:none;border:0;font-size:16px;color:var(--mute);cursor:pointer;padding:2px 6px}
+.flags{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
+.chk{display:flex;gap:6px;align-items:center;font-size:12px;cursor:pointer}.chk input{width:16px;height:16px;accent-color:var(--brand)}
+.addrow{display:flex;gap:8px;margin-top:4px}.addrow .btn{width:auto;padding:8px 12px;font-size:14px}
+.sub2{font-size:12px;color:var(--mute);margin:0 0 8px}
+.list{max-height:34vh;overflow:auto;padding-right:2px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:5px 5px;border-bottom:1px solid var(--line);text-align:left}td.n,th.n{text-align:right;white-space:nowrap}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px}
+.opt{border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;background:var(--card)}.opt.best{border-color:var(--good);box-shadow:0 0 0 3px color-mix(in srgb,var(--good) 14%,transparent)}
+.opt h3{margin:0 0 6px;font-size:15px}
+.kpi-row{grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
+.kpi{padding:6px 8px;border-radius:10px}.kpi span{font-size:11px}.kpi b{font-size:15px;white-space:nowrap}
+.alert{padding:6px 10px;margin:6px 0;font-size:13px}
+.det{margin:6px 0 0}.det>summary{font-size:13px;padding:2px 0}
+.bar{height:8px;border-radius:6px;background:var(--line);overflow:hidden;min-width:60px}.bar i{display:block;height:100%;background:var(--good)}.bar i.bad{background:var(--bad)}
 .tw{overflow-x:auto}
-.src{font-size:12px;color:var(--mute);margin-top:10px}
+.src{font-size:11px;color:var(--mute);margin:6px 0 0}
+.note{font-size:12px}
+#rates{border:1.5px dashed var(--line);border-radius:12px;padding:8px 10px;margin:0 0 8px}
+#rates .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px}#rates .top b{font-size:13px}
+#ratesList{max-height:24vh;overflow:auto}
+.empty{padding:14px 8px}.empty .ic{font-size:28px}
+.tg-first-message{margin:0!important}
+@media (min-width:1000px){
+  body{height:100vh;height:100dvh;overflow:hidden}
+}
+@media (max-width:999px){
+  .app{grid-template-columns:1fr;padding:8px}
+  .pane{overflow:visible}.list{max-height:none}.kpi-row{grid-template-columns:repeat(2,1fr)}
+  .cols{grid-template-columns:1fr}
+}
 </style>
 <link rel="stylesheet" href="telegram-contact.css">
 <script src="telegram-contact.js" defer></script>
 </head>
 <body>
-<header class="hero"><div class="in">
+<header class="topbar">
 <nav class="tabs"><a href="index.html">💳 Долги</a><a href="razmeshchenie.html" class="on">💰 Размещение денег</a></nav>
 <h1>Разложите деньги по банкам безопасно и выгодно</h1>
-<p>Внесите, где и под какие проценты лежат деньги. Калькулятор покажет, что покрыто страхованием АСВ, сколько вы заплатите налога на проценты и как разложить деньги лучше.</p>
-<div class="chips"><span class="chip">🔒 Данные не покидают браузер</span><span class="chip">🛡 Лимит АСВ по каждому банку</span><span class="chip">🧾 НДФЛ на проценты</span><span class="chip">⏱ 5 минут</span></div>
-</div></header>
+<span class="priv">🔒 данные не покидают браузер</span>
+</header>
 
-<main class="wrap">
-<section class="step">
-<h2><span class="num">1</span>Что у вас сейчас</h2>
-<p class="sub">Каждый вклад, накопительный счёт или остаток на карте с процентами - отдельной карточкой.</p>
+<main class="app">
+<div class="pane" id="left">
+<details class="blk" name="acc" open>
+<summary><span class="num">1</span>Что у вас сейчас<span class="hint" id="holdCount"></span></summary>
+<div class="in">
 <div id="holds"></div>
-<div class="addrow"><button class="btn" id="addHold">+ Добавить вклад или счёт</button></div>
-</section>
+<div class="addrow"><button class="btn" id="addHold">+ Вклад или счёт</button></div>
+</div>
+</details>
 
-<section class="step">
-<h2><span class="num">2</span>Условия</h2>
+<details class="blk" name="acc">
+<summary><span class="num">2</span>Условия</summary>
+<div class="in">
 <div class="grid">
 <label class="fld">Новые деньги к размещению<span class="box"><input id="newMoney" type="number" min="0" step="10000" inputmode="decimal" placeholder="0"><span class="unit">₽</span></span></label>
-<label class="fld">Должно быть доступно в любой момент<span class="box"><input id="liquid" type="number" min="0" step="10000" inputmode="decimal" placeholder="300 000"><span class="unit">₽</span></span></label>
-<label class="fld">Горизонт<span class="box"><select id="horizon"><option value="6">6 месяцев</option><option value="12" selected>12 месяцев</option><option value="14">14 месяцев (до конца 2027)</option><option value="24">24 месяца</option></select></span></label>
-<label class="fld">Проценты, уже полученные в 2026 до сегодня<span class="box"><input id="prior2026" type="number" min="0" step="1000" inputmode="decimal" placeholder="0"><span class="unit">₽</span></span></label>
-<label class="fld">Прочие доходы в год (зарплата и др.)<span class="box"><input id="otherIncome" type="number" min="0" step="10000" inputmode="decimal" placeholder="0"><span class="unit">₽</span></span></label>
-<label class="fld">Макс. ключевая ставка 2027 (допущение)<span class="box"><input id="key2027" type="number" min="0" step="0.5" inputmode="decimal" value="15"><span class="unit">%</span></span></label>
+<label class="fld">Нужно в любой момент<span class="box"><input id="liquid" type="number" min="0" step="10000" inputmode="decimal" placeholder="300 000"><span class="unit">₽</span></span></label>
+<label class="fld">Горизонт<span class="box"><select id="horizon"><option value="6">6 месяцев</option><option value="12" selected>12 месяцев</option><option value="14">14 мес. (до конца 2027)</option><option value="24">24 месяца</option></select></span></label>
+<label class="fld">Проценты, уже полученные в 2026<span class="box"><input id="prior2026" type="number" min="0" step="1000" inputmode="decimal" placeholder="0"><span class="unit">₽</span></span></label>
+<label class="fld">Прочие доходы в год<span class="box"><input id="otherIncome" type="number" min="0" step="10000" inputmode="decimal" placeholder="0"><span class="unit">₽</span></span></label>
+<label class="fld">Макс. ключевая 2027 (допущение)<span class="box"><input id="key2027" type="number" min="0" step="0.5" inputmode="decimal" value="15"><span class="unit">%</span></span></label>
 <label class="fld">Запас под лимитом АСВ<span class="box"><input id="reserve" type="number" min="0" max="50" step="1" inputmode="decimal" value="0"><span class="unit">%</span></span></label>
 </div>
-<p class="note">Лимит страхования - 1 400 000 ₽ на человека в одном банке, проценты входят в эту сумму. Необлагаемый процентный доход 2026 года - 1 млн ₽ x 16% = 160 000 ₽ (ставка на 1 января 2026 года). Для 2027 года ставка пока неизвестна - это допущение, его можно менять.</p>
-</section>
+<p class="note" style="margin-top:8px">Лимит АСВ - 1 400 000 ₽ на человека в одном банке, проценты входят в сумму. Необлагаемый доход 2026 года - 1 млн ₽ x 16% = 160 000 ₽. Для 2027 ставка неизвестна - это допущение.</p>
+</div>
+</details>
 
-<section class="step">
-<h2><span class="num">3</span>Куда можно разместить</h2>
-<p class="sub">Ставки возьмите из приложений банков на сегодня - они меняются, поэтому калькулятор их сам не подставляет.</p>
+<details class="blk" name="acc">
+<summary><span class="num">3</span>Куда разместить<span class="hint" id="offCount"></span></summary>
+<div class="in">
 <div class="hold" id="rates">
 <div class="top"><b>Живые ставки банков</b><span class="src" id="ratesDate" style="margin:0">загружаю...</span></div>
 <div class="grid">
-<label class="fld">Какие брать<span class="box"><select id="rKind"><option value="any">Вклады и накопительные счета</option><option value="acc">Только в любой момент (счета)</option><option value="dep">Только срочные вклады</option></select></span></label>
-<label class="fld">Сколько банков показать<span class="box"><input id="rTop" type="number" min="1" max="30" step="1" value="8"></span></label>
+<label class="fld">Какие брать<span class="box"><select id="rKind"><option value="any">Вклады и счета</option><option value="acc">Только счета (в любой момент)</option><option value="dep">Только срочные вклады</option></select></span></label>
+<label class="fld">Сколько банков<span class="box"><input id="rTop" type="number" min="1" max="30" step="1" value="8"></span></label>
 </div>
 <div class="flags"><label class="chk"><input type="checkbox" id="rOnline" checked> только с открытием онлайн</label></div>
-<div id="ratesList" class="tw"></div>
+<details class="det"><summary>Показать список</summary><div id="ratesList" class="tw"></div></details>
 <div class="addrow"><button class="btn" id="addRates" disabled>+ Добавить эти предложения</button></div>
-<p class="src">Ставки собираются автоматически раз в сутки с sravni.ru для суммы 1 млн ₽ и могут отличаться у банка; это максимум «до», часто для новых клиентов. Перед открытием проверьте условия в банке.</p>
+<p class="src">Ставки собираются раз в сутки с sravni.ru для суммы 1 млн ₽. Это максимум «до», часто для новых клиентов. Проверьте условия в банке.</p>
 </div>
-<div id="offers"></div>
-<div class="addrow"><button class="btn" id="addOffer">+ Добавить предложение банка</button></div>
-</section>
+<details class="det"><summary>Мои предложения (редактировать)</summary><div id="offers" class="list"></div></details>
+<div class="addrow"><button class="btn" id="addOffer">+ Своё предложение</button></div>
+</div>
+</details>
 
-<section class="step" id="result">
-<h2><span class="num">4</span>Ваш план</h2>
-<p class="sub">Сравнение «как сейчас» и «безопасная раскладка». Решение принимаете вы.</p>
-<div id="res"></div>
-</section>
-
-<section class="step">
-<div class="row">
-<button class="btn ghost" id="save">💾 Сохранить в файл</button>
-<button class="btn ghost" id="load">📂 Открыть файл</button><input type="file" id="loadFile" accept=".json" hidden>
+<details class="blk" name="acc">
+<summary><span class="num">4</span>Файл и пояснения</summary>
+<div class="in">
+<div class="addrow" style="flex-wrap:wrap">
+<button class="btn ghost" id="save">💾 Сохранить</button>
+<button class="btn ghost" id="load">📂 Открыть</button><input type="file" id="loadFile" accept=".json" hidden>
 <button class="btn ghost" id="clear">🗑 Очистить</button>
-<label class="chk" style="margin:0"><input type="checkbox" id="remember"> Помнить в этом браузере</label>
 </div>
-<p class="note" style="margin-top:14px">Это расчёт, а не инвестиционная рекомендация: он исходит из введённых вами ставок, считает ставку неизменной на весь горизонт и не знает условий конкретных продуктов (досрочное закрытие, снижение ставки, лимиты). Налог по накопленным и капитализированным процентам считается по году начисления. Источники норм: <a href="https://www.nalog.gov.ru/rn13/news/activities_fts/16626545/" target="_blank" rel="noopener">ФНС о налоге на вклады</a>, <a href="https://www.asv.org.ru/" target="_blank" rel="noopener">АСВ</a>.</p>
-</section>
-</main>
+<label class="chk" style="margin:8px 0"><input type="checkbox" id="remember"> Помнить в этом браузере</label>
+<p class="note">Это расчёт, а не инвестиционная рекомендация: он исходит из введённых ставок, считает ставку неизменной на весь горизонт и не знает условий конкретных продуктов (досрочное закрытие, снижение ставки, лимиты). Налог по накопленным и капитализированным процентам считается по году начисления. Источники норм: <a href="https://www.nalog.gov.ru/rn13/news/activities_fts/16626545/" target="_blank" rel="noopener">ФНС о налоге на вклады</a>, <a href="https://www.asv.org.ru/" target="_blank" rel="noopener">АСВ</a>.</p>
+</div>
+</details>
+
+<details class="blk" name="acc">
+<summary><span class="num">?</span>Разобрать ситуацию с человеком</summary>
+<div class="in">
 <section class="tg-first-message" aria-labelledby="tg-contact-title">
-<h2 id="tg-contact-title">Разобрать ситуацию с человеком</h2>
+<h2 id="tg-contact-title">Написать специалисту</h2>
 <a class="tg-button" href="https://t.me/pyankov_vv?text=%D0%9F%D0%B8%D1%88%D1%83%20%D1%81%D0%BE%20%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B%20%C2%AB%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%B5%D0%BD%D0%B5%D0%B3%C2%BB.">Написать в Telegram</a>
-<p>Откроется чат с @pyankov_vv. Допишите свою ситуацию и нажмите «Отправить». Паспортные данные и номера счетов для первого сообщения не нужны.</p>
+<p>Откроется чат с @pyankov_vv. Допишите свою ситуацию и нажмите «Отправить». Паспортные данные и номера счетов не нужны.</p>
 </section>
+</div>
+</details>
+</div>
+
+<div class="pane" id="result"><div id="res"></div></div>
+</main>
 <script src="placement-engine.js"></script>
 <script src="placement-app.js"></script>
 </body>
