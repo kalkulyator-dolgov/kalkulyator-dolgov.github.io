@@ -1,5 +1,5 @@
 {
-"updated": "2026-10-28T17:04Z",
+"updated": "2026-10-29T10:52Z",
 "source": "sravni.ru",
 "amount": 1000000,
 "count": 316,
@@ -485,16 +485,6 @@
 "flex": false
 },
 {
-"bank": "Совкомбанк",
-"name": "Максимальный доход Зарплатный",
-"kind": "deposit",
-"term": 3,
-"rate": 13.75,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
 "bank": "Альфа-Банк",
 "name": "Альфа-Вклад новые деньги",
 "kind": "deposit",
@@ -596,6 +586,16 @@
 },
 {
 "bank": "Альфа-Банк",
+"name": "Альфа-Вклад. Максимальный",
+"kind": "deposit",
+"term": 6,
+"rate": 13.61,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
+"bank": "Альфа-Банк",
 "name": "Альфа-Вклад Пенсионный",
 "kind": "deposit",
 "term": 6,
@@ -609,16 +609,6 @@
 "name": "Альфа-Вклад новые деньги",
 "kind": "deposit",
 "term": 3,
-"rate": 13.6,
-"cap": true,
-"online": true,
-"flex": false
-},
-{
-"bank": "Альфа-Банк",
-"name": "Альфа-Вклад. Максимальный",
-"kind": "deposit",
-"term": 6,
 "rate": 13.6,
 "cap": true,
 "online": true,
@@ -723,16 +713,6 @@
 "cap": false,
 "online": true,
 "flex": true
-},
-{
-"bank": "Совкомбанк",
-"name": "Максимальный доход Зарплатный",
-"kind": "deposit",
-"term": 6,
-"rate": 13.55,
-"cap": false,
-"online": true,
-"flex": false
 },
 {
 "bank": "Альфа-Банк",
@@ -946,6 +926,16 @@
 },
 {
 "bank": "Совкомбанк",
+"name": "Максимальный доход Зарплатный",
+"kind": "deposit",
+"term": 3,
+"rate": 13.5,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
+"bank": "Совкомбанк",
 "name": "Щедрая осень",
 "kind": "deposit",
 "term": 3,
@@ -1045,16 +1035,6 @@
 "flex": false
 },
 {
-"bank": "Совкомбанк",
-"name": "Максимальный доход Зарплатный",
-"kind": "deposit",
-"term": 12,
-"rate": 13.35,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
 "bank": "Фора-Банк",
 "name": "Рантье",
 "kind": "deposit",
@@ -1142,6 +1122,16 @@
 "rate": 13.3,
 "cap": false,
 "online": false,
+"flex": false
+},
+{
+"bank": "Совкомбанк",
+"name": "Максимальный доход Зарплатный",
+"kind": "deposit",
+"term": 6,
+"rate": 13.3,
+"cap": false,
+"online": true,
 "flex": false
 },
 {
@@ -1306,17 +1296,17 @@
 },
 {
 "bank": "Альфа-Банк",
-"name": "Альфа-Вклад Пенсионный",
+"name": "Альфа-Вклад. Максимальный",
 "kind": "deposit",
 "term": 24,
-"rate": 13.1,
+"rate": 13.11,
 "cap": true,
 "online": true,
 "flex": false
 },
 {
 "bank": "Альфа-Банк",
-"name": "Альфа-Вклад. Максимальный",
+"name": "Альфа-Вклад Пенсионный",
 "kind": "deposit",
 "term": 24,
 "rate": 13.1,
@@ -1366,6 +1356,16 @@
 },
 {
 "bank": "Совкомбанк",
+"name": "Максимальный доход Зарплатный",
+"kind": "deposit",
+"term": 12,
+"rate": 13.1,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
+"bank": "Совкомбанк",
 "name": "Щедрая осень",
 "kind": "deposit",
 "term": 12,
@@ -1380,26 +1380,6 @@
 "kind": "deposit",
 "term": 6,
 "rate": 13.04,
-"cap": true,
-"online": true,
-"flex": false
-},
-{
-"bank": "Ozon Банк",
-"name": "Срочный",
-"kind": "deposit",
-"term": 6,
-"rate": 13.01,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "Ozon Банк",
-"name": "Срочный",
-"kind": "deposit",
-"term": 12,
-"rate": 13.01,
 "cap": true,
 "online": true,
 "flex": false
@@ -1542,6 +1522,16 @@
 "rate": 13.0,
 "cap": false,
 "online": false,
+"flex": false
+},
+{
+"bank": "Ozon Банк",
+"name": "Срочный",
+"kind": "deposit",
+"term": 12,
+"rate": 12.97,
+"cap": true,
+"online": true,
 "flex": false
 },
 {
@@ -1985,6 +1975,16 @@
 "flex": true
 },
 {
+"bank": "Ozon Банк",
+"name": "Срочный",
+"kind": "deposit",
+"term": 6,
+"rate": 12.31,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
 "bank": "БКС Банк",
 "name": "Комфортный",
 "kind": "deposit",
@@ -2298,8 +2298,8 @@
 "bank": "Т-Банк",
 "name": "СмартВклад",
 "kind": "deposit",
-"term": 24,
-"rate": 11.67,
+"term": 12,
+"rate": 11.65,
 "cap": true,
 "online": true,
 "flex": true
@@ -2308,8 +2308,8 @@
 "bank": "Т-Банк",
 "name": "СмартВклад",
 "kind": "deposit",
-"term": 12,
-"rate": 11.65,
+"term": 24,
+"rate": 11.64,
 "cap": true,
 "online": true,
 "flex": true
@@ -2589,7 +2589,7 @@
 "name": "Рост",
 "kind": "deposit",
 "term": 12,
-"rate": 10.69,
+"rate": 10.66,
 "cap": true,
 "online": true,
 "flex": true
@@ -2689,7 +2689,7 @@
 "name": "Ежемесячный доход",
 "kind": "deposit",
 "term": 12,
-"rate": 10.47,
+"rate": 10.44,
 "cap": true,
 "online": true,
 "flex": false
@@ -3119,7 +3119,7 @@
 "name": "Пенсионный",
 "kind": "deposit",
 "term": 12,
-"rate": 7.76,
+"rate": 7.74,
 "cap": true,
 "online": false,
 "flex": true
@@ -3129,7 +3129,7 @@
 "name": "Фора-Хит",
 "kind": "deposit",
 "term": 12,
-"rate": 7.76,
+"rate": 7.74,
 "cap": true,
 "online": true,
 "flex": true
