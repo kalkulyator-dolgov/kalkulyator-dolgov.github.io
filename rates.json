@@ -1,5 +1,5 @@
 {
-"updated": "2026-10-31T10:21Z",
+"updated": "2026-11-01T11:14Z",
 "source": "sravni.ru",
 "amount": 1000000,
 "count": 316,
@@ -65,12 +65,32 @@
 "flex": true
 },
 {
+"bank": "ВТБ",
+"name": "ВТБ-Накопительный счет (% на минимальный остаток)",
+"kind": "accumulative",
+"term": 0,
+"rate": 14.7,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
 "bank": "Вайлдберриз Банк",
 "name": "Оптимальный",
 "kind": "deposit",
 "term": 6,
 "rate": 14.7,
 "cap": false,
+"online": true,
+"flex": false
+},
+{
+"bank": "Альфа-Банк",
+"name": "Альфавыгодный 2.0",
+"kind": "deposit",
+"term": 3,
+"rate": 14.5,
+"cap": true,
 "online": true,
 "flex": false
 },
@@ -135,16 +155,6 @@
 "flex": false
 },
 {
-"bank": "Альфа-Банк",
-"name": "Альфавыгодный 2.0",
-"kind": "deposit",
-"term": 3,
-"rate": 14.34,
-"cap": true,
-"online": true,
-"flex": false
-},
-{
 "bank": "Банк ПСБ",
 "name": "Вклад в Победу",
 "kind": "deposit",
@@ -173,16 +183,6 @@
 "cap": false,
 "online": true,
 "flex": false
-},
-{
-"bank": "ВТБ",
-"name": "ВТБ-Накопительный счет (% на минимальный остаток)",
-"kind": "accumulative",
-"term": 0,
-"rate": 14.2,
-"cap": true,
-"online": true,
-"flex": true
 },
 {
 "bank": "ДОМ.РФ Банк",
@@ -605,6 +605,16 @@
 "flex": false
 },
 {
+"bank": "Альфа-Банк",
+"name": "Альфа-Вклад новые деньги",
+"kind": "deposit",
+"term": 3,
+"rate": 13.6,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
 "bank": "Газпромбанк",
 "name": "Ключевой момент",
 "kind": "deposit",
@@ -706,7 +716,7 @@
 },
 {
 "bank": "Альфа-Банк",
-"name": "Альфа-Вклад новые деньги",
+"name": "Альфа-Вклад Пенсионный",
 "kind": "deposit",
 "term": 3,
 "rate": 13.51,
@@ -732,6 +742,16 @@
 "rate": 13.51,
 "cap": false,
 "online": false,
+"flex": false
+},
+{
+"bank": "Альфа-Банк",
+"name": "Альфа-Вклад. Максимальный",
+"kind": "deposit",
+"term": 3,
+"rate": 13.5,
+"cap": true,
+"online": true,
 "flex": false
 },
 {
@@ -993,26 +1013,6 @@
 "cap": true,
 "online": true,
 "flex": true
-},
-{
-"bank": "Альфа-Банк",
-"name": "Альфа-Вклад. Максимальный",
-"kind": "deposit",
-"term": 3,
-"rate": 13.4,
-"cap": true,
-"online": true,
-"flex": false
-},
-{
-"bank": "Альфа-Банк",
-"name": "Альфа-Вклад Пенсионный",
-"kind": "deposit",
-"term": 3,
-"rate": 13.4,
-"cap": true,
-"online": true,
-"flex": false
 },
 {
 "bank": "ОТП Банк",
@@ -1299,7 +1299,7 @@
 "name": "Альфа-Вклад. Максимальный",
 "kind": "deposit",
 "term": 24,
-"rate": 13.11,
+"rate": 13.1,
 "cap": true,
 "online": true,
 "flex": false
@@ -1370,6 +1370,26 @@
 "kind": "deposit",
 "term": 24,
 "rate": 13.09,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
+"bank": "Цифра банк",
+"name": "Цифра вклад",
+"kind": "deposit",
+"term": 6,
+"rate": 13.04,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
+"bank": "Ozon Банк",
+"name": "Срочный",
+"kind": "deposit",
+"term": 12,
+"rate": 13.01,
 "cap": true,
 "online": true,
 "flex": false
@@ -1515,16 +1535,6 @@
 "flex": false
 },
 {
-"bank": "Цифра банк",
-"name": "Цифра вклад",
-"kind": "deposit",
-"term": 6,
-"rate": 12.96,
-"cap": true,
-"online": true,
-"flex": false
-},
-{
 "bank": "Ак Барс Банк",
 "name": "Мой выбор",
 "kind": "deposit",
@@ -1561,16 +1571,6 @@
 "term": 12,
 "rate": 12.9,
 "cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "Ozon Банк",
-"name": "Срочный",
-"kind": "deposit",
-"term": 12,
-"rate": 12.89,
-"cap": true,
 "online": true,
 "flex": false
 },
@@ -1725,6 +1725,16 @@
 "flex": true
 },
 {
+"bank": "Цифра банк",
+"name": "Цифра вклад",
+"kind": "deposit",
+"term": 12,
+"rate": 12.63,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
 "bank": "БКС Банк",
 "name": "Выгодный",
 "kind": "deposit",
@@ -1763,16 +1773,6 @@
 "cap": false,
 "online": false,
 "flex": true
-},
-{
-"bank": "Цифра банк",
-"name": "Цифра вклад",
-"kind": "deposit",
-"term": 12,
-"rate": 12.57,
-"cap": true,
-"online": true,
-"flex": false
 },
 {
 "bank": "Альфа-Банк",
@@ -1939,10 +1939,20 @@
 "name": "СмартВклад",
 "kind": "deposit",
 "term": 3,
-"rate": 12.42,
+"rate": 12.43,
 "cap": true,
 "online": true,
 "flex": true
+},
+{
+"bank": "Альфа-Банк",
+"name": "Альфа-Вклад",
+"kind": "deposit",
+"term": 3,
+"rate": 12.4,
+"cap": true,
+"online": true,
+"flex": false
 },
 {
 "bank": "Кредит Европа Банк (Россия)",
@@ -1973,16 +1983,6 @@
 "cap": true,
 "online": true,
 "flex": true
-},
-{
-"bank": "Альфа-Банк",
-"name": "Альфа-Вклад",
-"kind": "deposit",
-"term": 3,
-"rate": 12.31,
-"cap": true,
-"online": true,
-"flex": false
 },
 {
 "bank": "БКС Банк",
@@ -2175,6 +2175,16 @@
 "flex": true
 },
 {
+"bank": "Банк ПСБ",
+"name": "Моя копилка",
+"kind": "deposit",
+"term": 6,
+"rate": 11.99,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
 "bank": "Русский стандарт",
 "name": "Продвинутый процент",
 "kind": "deposit",
@@ -2225,14 +2235,24 @@
 "flex": false
 },
 {
-"bank": "Банк ПСБ",
-"name": "Моя копилка",
+"bank": "Русский стандарт",
+"name": "Ежемесячный доход",
 "kind": "deposit",
 "term": 6,
-"rate": 11.85,
+"rate": 11.83,
 "cap": true,
 "online": true,
-"flex": true
+"flex": false
+},
+{
+"bank": "Ozon Банк",
+"name": "Срочный",
+"kind": "deposit",
+"term": 24,
+"rate": 11.81,
+"cap": true,
+"online": true,
+"flex": false
 },
 {
 "bank": "Ак Барс Банк",
@@ -2255,24 +2275,14 @@
 "flex": false
 },
 {
-"bank": "Ozon Банк",
-"name": "Срочный",
-"kind": "deposit",
-"term": 24,
-"rate": 11.77,
-"cap": true,
-"online": true,
-"flex": false
-},
-{
-"bank": "Русский стандарт",
-"name": "Ежемесячный доход",
+"bank": "Т-Банк",
+"name": "СмартВклад",
 "kind": "deposit",
 "term": 6,
-"rate": 11.76,
+"rate": 11.78,
 "cap": true,
 "online": true,
-"flex": false
+"flex": true
 },
 {
 "bank": "ДОМ.РФ Банк",
@@ -2289,27 +2299,7 @@
 "name": "СмартВклад",
 "kind": "deposit",
 "term": 12,
-"rate": 11.65,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "Т-Банк",
-"name": "СмартВклад",
-"kind": "deposit",
-"term": 6,
-"rate": 11.64,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "Банк ПСБ",
-"name": "Моя копилка",
-"kind": "deposit",
-"term": 3,
-"rate": 11.61,
+"rate": 11.66,
 "cap": true,
 "online": true,
 "flex": true
@@ -2319,6 +2309,16 @@
 "name": "СмартВклад",
 "kind": "deposit",
 "term": 24,
+"rate": 11.63,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
+"bank": "Банк ПСБ",
+"name": "Моя копилка",
+"kind": "deposit",
+"term": 3,
 "rate": 11.61,
 "cap": true,
 "online": true,
@@ -2385,6 +2385,26 @@
 "flex": true
 },
 {
+"bank": "Банк ПСБ",
+"name": "Мои возможности",
+"kind": "deposit",
+"term": 6,
+"rate": 11.46,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
+"bank": "НОВИКОМ",
+"name": "Рост",
+"kind": "deposit",
+"term": 6,
+"rate": 11.46,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
 "bank": "Банк Уралсиб",
 "name": "Доход",
 "kind": "deposit",
@@ -2393,26 +2413,6 @@
 "cap": false,
 "online": true,
 "flex": false
-},
-{
-"bank": "НОВИКОМ",
-"name": "Рост",
-"kind": "deposit",
-"term": 6,
-"rate": 11.4,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "Банк ПСБ",
-"name": "Мои возможности",
-"kind": "deposit",
-"term": 6,
-"rate": 11.33,
-"cap": true,
-"online": true,
-"flex": true
 },
 {
 "bank": "БКС Банк",
@@ -2589,7 +2589,7 @@
 "name": "Рост",
 "kind": "deposit",
 "term": 12,
-"rate": 10.6,
+"rate": 10.69,
 "cap": true,
 "online": true,
 "flex": true
@@ -2679,7 +2679,27 @@
 "name": "Мои возможности",
 "kind": "deposit",
 "term": 12,
-"rate": 10.48,
+"rate": 10.47,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
+"bank": "Русский стандарт",
+"name": "Ежемесячный доход",
+"kind": "deposit",
+"term": 12,
+"rate": 10.47,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
+"bank": "НОВИКОМ",
+"name": "Комфорт",
+"kind": "deposit",
+"term": 6,
+"rate": 10.42,
 "cap": true,
 "online": true,
 "flex": true
@@ -2705,31 +2725,11 @@
 "flex": true
 },
 {
-"bank": "Русский стандарт",
-"name": "Ежемесячный доход",
-"kind": "deposit",
-"term": 12,
-"rate": 10.38,
-"cap": true,
-"online": true,
-"flex": false
-},
-{
-"bank": "НОВИКОМ",
-"name": "Комфорт",
-"kind": "deposit",
-"term": 6,
-"rate": 10.3,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
 "bank": "Цифра банк",
 "name": "Цифра вклад",
 "kind": "deposit",
 "term": 24,
-"rate": 10.27,
+"rate": 10.3,
 "cap": true,
 "online": true,
 "flex": false
@@ -3099,7 +3099,7 @@
 "name": "Фаворит",
 "kind": "deposit",
 "term": 12,
-"rate": 7.9,
+"rate": 7.93,
 "cap": true,
 "online": true,
 "flex": false
@@ -3119,7 +3119,7 @@
 "name": "Пенсионный",
 "kind": "deposit",
 "term": 12,
-"rate": 7.7,
+"rate": 7.76,
 "cap": true,
 "online": false,
 "flex": true
@@ -3129,7 +3129,7 @@
 "name": "Фора-Хит",
 "kind": "deposit",
 "term": 12,
-"rate": 7.7,
+"rate": 7.76,
 "cap": true,
 "online": true,
 "flex": true
