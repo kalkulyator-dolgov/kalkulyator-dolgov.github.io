@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-03T11:53Z",
+"updated": "2026-11-04T12:04Z",
 "source": "sravni.ru",
 "amount": 1000000,
-"count": 317,
+"count": 316,
 "offers": [
 {
 "bank": "Банк ПСБ",
@@ -2827,16 +2827,6 @@
 {
 "bank": "Банк ПСБ",
 "name": "Вектор (на ежедневный остаток)",
-"kind": "accumulative",
-"term": 0,
-"rate": 10.0,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "Банк Уралсиб",
-"name": "Накопительный счет",
 "kind": "accumulative",
 "term": 0,
 "rate": 10.0,
