@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-05T12:16Z",
+"updated": "2026-11-06T12:03Z",
 "source": "sravni.ru",
 "amount": 1000000,
 "count": 316,
@@ -1959,7 +1959,7 @@
 "name": "СмартВклад",
 "kind": "deposit",
 "term": 3,
-"rate": 12.43,
+"rate": 12.42,
 "cap": true,
 "online": true,
 "flex": true
@@ -2309,17 +2309,7 @@
 "name": "СмартВклад",
 "kind": "deposit",
 "term": 12,
-"rate": 11.66,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "Т-Банк",
-"name": "СмартВклад",
-"kind": "deposit",
-"term": 24,
-"rate": 11.63,
+"rate": 11.65,
 "cap": true,
 "online": true,
 "flex": true
@@ -2329,6 +2319,16 @@
 "name": "Моя копилка",
 "kind": "deposit",
 "term": 3,
+"rate": 11.61,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
+"bank": "Т-Банк",
+"name": "СмартВклад",
+"kind": "deposit",
+"term": 24,
 "rate": 11.61,
 "cap": true,
 "online": true,
