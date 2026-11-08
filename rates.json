@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-07T11:01Z",
+"updated": "2026-11-08T11:15Z",
 "source": "sravni.ru",
 "amount": 1000000,
 "count": 316,
@@ -1326,6 +1326,16 @@
 },
 {
 "bank": "Альфа-Банк",
+"name": "Альфа-Вклад Пенсионный",
+"kind": "deposit",
+"term": 24,
+"rate": 13.1,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
+"bank": "Альфа-Банк",
 "name": "Альфа-Вклад. Максимальный",
 "kind": "deposit",
 "term": 24,
@@ -1391,16 +1401,6 @@
 "term": 12,
 "rate": 13.1,
 "cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "Альфа-Банк",
-"name": "Альфа-Вклад Пенсионный",
-"kind": "deposit",
-"term": 24,
-"rate": 13.09,
-"cap": true,
 "online": true,
 "flex": false
 },
