@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-08T11:15Z",
+"updated": "2026-11-09T12:48Z",
 "source": "sravni.ru",
 "amount": 1000000,
-"count": 316,
+"count": 314,
 "offers": [
 {
 "bank": "Банк ПСБ",
@@ -65,6 +65,16 @@
 "flex": false
 },
 {
+"bank": "ТКБ Банк",
+"name": "Старт",
+"kind": "deposit",
+"term": 3,
+"rate": 14.77,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
 "bank": "Локо-Банк",
 "name": "Локо-Счет Плюс (на ежедневный остаток)",
 "kind": "accumulative",
@@ -101,6 +111,26 @@
 "term": 6,
 "rate": 14.7,
 "cap": false,
+"online": true,
+"flex": false
+},
+{
+"bank": "ТКБ Банк",
+"name": "Новые деньги",
+"kind": "deposit",
+"term": 3,
+"rate": 14.67,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
+"bank": "ТКБ Банк",
+"name": "Старт",
+"kind": "deposit",
+"term": 6,
+"rate": 14.59,
+"cap": true,
 "online": true,
 "flex": false
 },
@@ -155,6 +185,16 @@
 "flex": true
 },
 {
+"bank": "ТКБ Банк",
+"name": "Новые деньги",
+"kind": "deposit",
+"term": 6,
+"rate": 14.49,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
 "bank": "Банк ПСБ",
 "name": "Сильная ставка",
 "kind": "deposit",
@@ -195,6 +235,26 @@
 "flex": false
 },
 {
+"bank": "ТКБ Банк",
+"name": "Старт",
+"kind": "deposit",
+"term": 12,
+"rate": 14.36,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
+"bank": "ТКБ Банк",
+"name": "Хит",
+"kind": "deposit",
+"term": 6,
+"rate": 14.31,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
 "bank": "Банк ПСБ",
 "name": "Мой доход",
 "kind": "deposit",
@@ -211,6 +271,16 @@
 "term": 6,
 "rate": 14.3,
 "cap": false,
+"online": true,
+"flex": false
+},
+{
+"bank": "ТКБ Банк",
+"name": "Новые деньги",
+"kind": "deposit",
+"term": 12,
+"rate": 14.26,
+"cap": true,
 "online": true,
 "flex": false
 },
@@ -263,6 +333,16 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "ТКБ Банк",
+"name": "Хит",
+"kind": "deposit",
+"term": 3,
+"rate": 14.04,
+"cap": true,
+"online": true,
+"flex": true
 },
 {
 "bank": "Банк ПСБ",
@@ -365,31 +445,11 @@
 "flex": true
 },
 {
-"bank": "ТКБ Банк",
-"name": "Новый старт",
-"kind": "deposit",
-"term": 3,
-"rate": 14.0,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
 "bank": "Яндекс Банк",
 "name": "Сейв (вклад)",
 "kind": "deposit",
 "term": 6,
 "rate": 14.0,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "ТКБ Банк",
-"name": "Новые деньги",
-"kind": "deposit",
-"term": 3,
-"rate": 13.9,
 "cap": false,
 "online": true,
 "flex": false
@@ -403,6 +463,16 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "ТКБ Банк",
+"name": "Хит",
+"kind": "deposit",
+"term": 12,
+"rate": 13.82,
+"cap": true,
+"online": true,
+"flex": true
 },
 {
 "bank": "Банк ПСБ",
@@ -466,16 +536,6 @@
 },
 {
 "bank": "Русский стандарт",
-"name": "Новые деньги",
-"kind": "deposit",
-"term": 3,
-"rate": 13.8,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "Русский стандарт",
 "name": "Новый доход",
 "kind": "deposit",
 "term": 3,
@@ -485,10 +545,10 @@
 "flex": false
 },
 {
-"bank": "ТКБ Банк",
-"name": "Новый старт",
+"bank": "Русский стандарт",
+"name": "Новые деньги",
 "kind": "deposit",
-"term": 6,
+"term": 3,
 "rate": 13.8,
 "cap": false,
 "online": true,
@@ -567,16 +627,6 @@
 {
 "bank": "Локо-Банк",
 "name": "Локо-Вклад Промо",
-"kind": "deposit",
-"term": 6,
-"rate": 13.7,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "ТКБ Банк",
-"name": "Новые деньги",
 "kind": "deposit",
 "term": 6,
 "rate": 13.7,
@@ -699,16 +749,6 @@
 "name": "Новые деньги",
 "kind": "deposit",
 "term": 6,
-"rate": 13.6,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "ТКБ Банк",
-"name": "Новый хит",
-"kind": "deposit",
-"term": 3,
 "rate": 13.6,
 "cap": false,
 "online": true,
@@ -975,26 +1015,6 @@
 "flex": false
 },
 {
-"bank": "ТКБ Банк",
-"name": "Новый хит",
-"kind": "deposit",
-"term": 6,
-"rate": 13.5,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "ТКБ Банк",
-"name": "Новый старт",
-"kind": "deposit",
-"term": 12,
-"rate": 13.5,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
 "bank": "Фора-Банк",
 "name": "Сберегательный ",
 "kind": "deposit",
@@ -1049,16 +1069,6 @@
 "name": "Горизонт",
 "kind": "deposit",
 "term": 6,
-"rate": 13.4,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "ТКБ Банк",
-"name": "Новые деньги",
-"kind": "deposit",
-"term": 12,
 "rate": 13.4,
 "cap": false,
 "online": true,
@@ -1519,16 +1529,6 @@
 "name": "Максимальный",
 "kind": "deposit",
 "term": 3,
-"rate": 13.0,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "ТКБ Банк",
-"name": "Новый хит",
-"kind": "deposit",
-"term": 12,
 "rate": 13.0,
 "cap": false,
 "online": true,
@@ -2535,16 +2535,6 @@
 "flex": true
 },
 {
-"bank": "ТКБ Банк",
-"name": "ТКБ. Просто вклад",
-"kind": "deposit",
-"term": 6,
-"rate": 11.0,
-"cap": false,
-"online": true,
-"flex": true
-},
-{
 "bank": "Финам",
 "name": "Ваши правила",
 "kind": "deposit",
@@ -2867,16 +2857,6 @@
 {
 "bank": "Сбербанк",
 "name": "СберВклад Молодёжный",
-"kind": "deposit",
-"term": 12,
-"rate": 10.0,
-"cap": false,
-"online": true,
-"flex": true
-},
-{
-"bank": "ТКБ Банк",
-"name": "ТКБ. Просто вклад",
 "kind": "deposit",
 "term": 12,
 "rate": 10.0,
