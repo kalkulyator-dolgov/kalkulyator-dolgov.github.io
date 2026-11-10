@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-09T12:48Z",
+"updated": "2026-11-10T12:35Z",
 "source": "sravni.ru",
 "amount": 1000000,
 "count": 314,
@@ -165,6 +165,16 @@
 "flex": false
 },
 {
+"bank": "Газпромбанк",
+"name": "ГПБ-счет (% на минимальный остаток)",
+"kind": "accumulative",
+"term": 0,
+"rate": 14.5,
+"cap": true,
+"online": false,
+"flex": true
+},
+{
 "bank": "ДОМ.РФ Банк",
 "name": "Активный процент",
 "kind": "deposit",
@@ -295,6 +305,16 @@
 "flex": false
 },
 {
+"bank": "Т-Банк",
+"name": "СмартВклад",
+"kind": "deposit",
+"term": 3,
+"rate": 14.24,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
 "bank": "ДОМ.РФ Банк",
 "name": "Мой Дом",
 "kind": "deposit",
@@ -393,16 +413,6 @@
 "cap": false,
 "online": true,
 "flex": false
-},
-{
-"bank": "Газпромбанк",
-"name": "ГПБ-счет (% на минимальный остаток)",
-"kind": "accumulative",
-"term": 0,
-"rate": 14.0,
-"cap": true,
-"online": false,
-"flex": true
 },
 {
 "bank": "Локо-Банк",
@@ -553,6 +563,16 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "Газпромбанк",
+"name": "ГПБ-счет (% на ежедневный остаток)",
+"kind": "accumulative",
+"term": 0,
+"rate": 13.75,
+"cap": true,
+"online": false,
+"flex": true
 },
 {
 "bank": "КАМКОМБАНК",
@@ -833,6 +853,16 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "Банк ПСБ",
+"name": "Вектор (на минимальный остаток)",
+"kind": "accumulative",
+"term": 0,
+"rate": 13.5,
+"cap": true,
+"online": true,
+"flex": true
 },
 {
 "bank": "Банк Уралсиб",
@@ -1495,16 +1525,6 @@
 "flex": true
 },
 {
-"bank": "Газпромбанк",
-"name": "ГПБ-счет (% на ежедневный остаток)",
-"kind": "accumulative",
-"term": 0,
-"rate": 13.0,
-"cap": true,
-"online": false,
-"flex": true
-},
-{
 "bank": "Кредит Европа Банк (Россия)",
 "name": "Оптимальный",
 "kind": "deposit",
@@ -1583,6 +1603,16 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "Т-Банк",
+"name": "СмартВклад",
+"kind": "deposit",
+"term": 24,
+"rate": 12.86,
+"cap": true,
+"online": true,
+"flex": true
 },
 {
 "bank": "Банк ПСБ",
@@ -1815,6 +1845,16 @@
 "flex": false
 },
 {
+"bank": "Банк ПСБ",
+"name": "Вектор (на ежедневный остаток)",
+"kind": "accumulative",
+"term": 0,
+"rate": 12.5,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
 "bank": "Инго Банк",
 "name": "Классический",
 "kind": "deposit",
@@ -1958,8 +1998,8 @@
 "bank": "Т-Банк",
 "name": "СмартВклад",
 "kind": "deposit",
-"term": 3,
-"rate": 12.42,
+"term": 12,
+"rate": 12.48,
 "cap": true,
 "online": true,
 "flex": true
@@ -2011,6 +2051,16 @@
 "term": 6,
 "rate": 12.3,
 "cap": false,
+"online": true,
+"flex": true
+},
+{
+"bank": "Т-Банк",
+"name": "СмартВклад",
+"kind": "deposit",
+"term": 6,
+"rate": 12.3,
+"cap": true,
 "online": true,
 "flex": true
 },
@@ -2285,16 +2335,6 @@
 "flex": false
 },
 {
-"bank": "Т-Банк",
-"name": "СмартВклад",
-"kind": "deposit",
-"term": 6,
-"rate": 11.78,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
 "bank": "ДОМ.РФ Банк",
 "name": "Мой Дом",
 "kind": "deposit",
@@ -2305,30 +2345,10 @@
 "flex": true
 },
 {
-"bank": "Т-Банк",
-"name": "СмартВклад",
-"kind": "deposit",
-"term": 12,
-"rate": 11.65,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
 "bank": "Банк ПСБ",
 "name": "Моя копилка",
 "kind": "deposit",
 "term": 3,
-"rate": 11.61,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "Т-Банк",
-"name": "СмартВклад",
-"kind": "deposit",
-"term": 24,
 "rate": 11.61,
 "cap": true,
 "online": true,
@@ -2471,16 +2491,6 @@
 "term": 12,
 "rate": 11.0,
 "cap": false,
-"online": true,
-"flex": true
-},
-{
-"bank": "Банк ПСБ",
-"name": "Вектор (на минимальный остаток)",
-"kind": "accumulative",
-"term": 0,
-"rate": 11.0,
-"cap": true,
 "online": true,
 "flex": true
 },
@@ -2813,16 +2823,6 @@
 "cap": false,
 "online": true,
 "flex": false
-},
-{
-"bank": "Банк ПСБ",
-"name": "Вектор (на ежедневный остаток)",
-"kind": "accumulative",
-"term": 0,
-"rate": 10.0,
-"cap": true,
-"online": true,
-"flex": true
 },
 {
 "bank": "Инго Банк",
