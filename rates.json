@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-10T12:35Z",
+"updated": "2026-11-11T11:51Z",
 "source": "sravni.ru",
 "amount": 1000000,
 "count": 314,
@@ -986,16 +986,6 @@
 },
 {
 "bank": "Сбербанк",
-"name": "СберВклад",
-"kind": "deposit",
-"term": 3,
-"rate": 13.5,
-"cap": false,
-"online": true,
-"flex": true
-},
-{
-"bank": "Сбербанк",
 "name": "Лучший % (в конце срока)",
 "kind": "deposit",
 "term": 6,
@@ -1003,16 +993,6 @@
 "cap": false,
 "online": true,
 "flex": false
-},
-{
-"bank": "Сбербанк",
-"name": "СберВклад",
-"kind": "deposit",
-"term": 6,
-"rate": 13.5,
-"cap": false,
-"online": true,
-"flex": true
 },
 {
 "bank": "Совкомбанк",
@@ -1553,6 +1533,26 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "Сбербанк",
+"name": "СберВклад",
+"kind": "deposit",
+"term": 3,
+"rate": 13.0,
+"cap": false,
+"online": true,
+"flex": true
+},
+{
+"bank": "Сбербанк",
+"name": "СберВклад",
+"kind": "deposit",
+"term": 6,
+"rate": 13.0,
+"cap": false,
+"online": true,
+"flex": true
 },
 {
 "bank": "Энерготрансбанк",
@@ -2535,16 +2535,6 @@
 "flex": false
 },
 {
-"bank": "Сбербанк",
-"name": "СберВклад",
-"kind": "deposit",
-"term": 12,
-"rate": 11.0,
-"cap": false,
-"online": true,
-"flex": true
-},
-{
 "bank": "Финам",
 "name": "Ваши правила",
 "kind": "deposit",
@@ -2647,6 +2637,16 @@
 {
 "bank": "ОТП Банк",
 "name": "Притяжение",
+"kind": "deposit",
+"term": 12,
+"rate": 10.5,
+"cap": false,
+"online": true,
+"flex": true
+},
+{
+"bank": "Сбербанк",
+"name": "СберВклад",
 "kind": "deposit",
 "term": 12,
 "rate": 10.5,
