@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-11T11:51Z",
+"updated": "2026-11-12T12:39Z",
 "source": "sravni.ru",
 "amount": 1000000,
 "count": 314,
@@ -876,26 +876,6 @@
 },
 {
 "bank": "ВТБ",
-"name": "Вместе",
-"kind": "deposit",
-"term": 3,
-"rate": 13.5,
-"cap": false,
-"online": false,
-"flex": false
-},
-{
-"bank": "ВТБ",
-"name": "Вместе",
-"kind": "deposit",
-"term": 6,
-"rate": 13.5,
-"cap": false,
-"online": false,
-"flex": false
-},
-{
-"bank": "ВТБ",
 "name": "ВТБ Вклад",
 "kind": "deposit",
 "term": 12,
@@ -903,6 +883,16 @@
 "cap": true,
 "online": true,
 "flex": true
+},
+{
+"bank": "ВТБ",
+"name": "Вместе",
+"kind": "deposit",
+"term": 12,
+"rate": 13.5,
+"cap": false,
+"online": false,
+"flex": false
 },
 {
 "bank": "ДОМ.РФ Банк",
@@ -1073,6 +1063,26 @@
 "cap": true,
 "online": true,
 "flex": true
+},
+{
+"bank": "ВТБ",
+"name": "Вместе",
+"kind": "deposit",
+"term": 3,
+"rate": 13.4,
+"cap": false,
+"online": false,
+"flex": false
+},
+{
+"bank": "ВТБ",
+"name": "Вместе",
+"kind": "deposit",
+"term": 6,
+"rate": 13.4,
+"cap": false,
+"online": false,
+"flex": false
 },
 {
 "bank": "ОТП Банк",
@@ -1483,16 +1493,6 @@
 "cap": true,
 "online": true,
 "flex": true
-},
-{
-"bank": "ВТБ",
-"name": "Вместе",
-"kind": "deposit",
-"term": 12,
-"rate": 13.0,
-"cap": false,
-"online": false,
-"flex": false
 },
 {
 "bank": "Вайлдберриз Банк",
