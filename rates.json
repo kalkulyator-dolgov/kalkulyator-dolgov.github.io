@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-12T12:39Z",
+"updated": "2026-11-13T12:09Z",
 "source": "sravni.ru",
 "amount": 1000000,
-"count": 314,
+"count": 313,
 "offers": [
 {
 "bank": "Банк ПСБ",
@@ -836,16 +836,6 @@
 },
 {
 "bank": "БКС Банк",
-"name": "Накопительный ",
-"kind": "accumulative",
-"term": 0,
-"rate": 13.5,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "БКС Банк",
 "name": "Импульс",
 "kind": "deposit",
 "term": 6,
@@ -873,6 +863,16 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "ВТБ",
+"name": "ВТБ Вклад",
+"kind": "deposit",
+"term": 3,
+"rate": 13.5,
+"cap": true,
+"online": true,
+"flex": true
 },
 {
 "bank": "ВТБ",
@@ -1123,16 +1123,6 @@
 "cap": false,
 "online": false,
 "flex": false
-},
-{
-"bank": "ВТБ",
-"name": "ВТБ Вклад",
-"kind": "deposit",
-"term": 3,
-"rate": 13.3,
-"cap": true,
-"online": true,
-"flex": true
 },
 {
 "bank": "ВТБ",
