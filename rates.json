@@ -1,18 +1,18 @@
 {
-"updated": "2026-11-17T13:18Z",
+"updated": "2026-11-18T12:59Z",
 "source": "sravni.ru",
 "amount": 1000000,
 "count": 313,
 "offers": [
 {
 "bank": "Банк ПСБ",
-"name": "Народный вклад",
-"kind": "deposit",
-"term": 3,
-"rate": 19.0,
-"cap": false,
+"name": "Импульс",
+"kind": "accumulative",
+"term": 0,
+"rate": 16.0,
+"cap": true,
 "online": true,
-"flex": false
+"flex": true
 },
 {
 "bank": "Ozon Банк",
