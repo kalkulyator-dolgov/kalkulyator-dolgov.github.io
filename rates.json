@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-18T12:59Z",
+"updated": "2026-11-19T12:58Z",
 "source": "sravni.ru",
 "amount": 1000000,
 "count": 313,
@@ -73,16 +73,6 @@
 "cap": true,
 "online": true,
 "flex": false
-},
-{
-"bank": "Локо-Банк",
-"name": "Локо-Счет Плюс (на ежедневный остаток)",
-"kind": "accumulative",
-"term": 0,
-"rate": 14.75,
-"cap": true,
-"online": true,
-"flex": true
 },
 {
 "bank": "Альфа-Банк",
@@ -293,6 +283,16 @@
 "cap": true,
 "online": true,
 "flex": false
+},
+{
+"bank": "Локо-Банк",
+"name": "Локо-Счет Плюс (на ежедневный остаток)",
+"kind": "accumulative",
+"term": 0,
+"rate": 14.25,
+"cap": true,
+"online": true,
+"flex": true
 },
 {
 "bank": "ТКБ Банк",
@@ -916,16 +916,6 @@
 },
 {
 "bank": "Локо-Банк",
-"name": "Локо-Счет (на ежедневный остаток)",
-"kind": "accumulative",
-"term": 0,
-"rate": 13.5,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "Локо-Банк",
 "name": "Локо-Вклад. Сравни.ру",
 "kind": "deposit",
 "term": 6,
@@ -1503,6 +1493,16 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "Локо-Банк",
+"name": "Локо-Счет (на ежедневный остаток)",
+"kind": "accumulative",
+"term": 0,
+"rate": 13.0,
+"cap": true,
+"online": true,
+"flex": true
 },
 {
 "bank": "Россельхозбанк",
