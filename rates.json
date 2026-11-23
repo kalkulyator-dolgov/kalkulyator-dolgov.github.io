@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-22T12:32Z",
+"updated": "2026-11-23T14:32Z",
 "source": "sravni.ru",
 "amount": 1000000,
-"count": 311,
+"count": 312,
 "offers": [
 {
 "bank": "Банк ПСБ",
@@ -20,6 +20,16 @@
 "kind": "accumulative",
 "term": 0,
 "rate": 15.1,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
+"bank": "Альфа-Банк",
+"name": "Альфа-Счёт (на минимальный остаток)",
+"kind": "accumulative",
+"term": 0,
+"rate": 15.0,
 "cap": true,
 "online": true,
 "flex": true
@@ -73,16 +83,6 @@
 "cap": true,
 "online": true,
 "flex": false
-},
-{
-"bank": "Альфа-Банк",
-"name": "Альфа-Счёт (на минимальный остаток)",
-"kind": "accumulative",
-"term": 0,
-"rate": 14.7,
-"cap": true,
-"online": true,
-"flex": true
 },
 {
 "bank": "ВТБ",
@@ -835,16 +835,6 @@
 "flex": false
 },
 {
-"bank": "БКС Банк",
-"name": "Импульс",
-"kind": "deposit",
-"term": 6,
-"rate": 13.5,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
 "bank": "Банк ПСБ",
 "name": "Вектор (на минимальный остаток)",
 "kind": "accumulative",
@@ -1023,6 +1013,16 @@
 "cap": false,
 "online": false,
 "flex": true
+},
+{
+"bank": "Энерготрансбанк",
+"name": "Доход плюс Сравни.ру",
+"kind": "deposit",
+"term": 3,
+"rate": 13.5,
+"cap": false,
+"online": false,
+"flex": false
 },
 {
 "bank": "Фора-Банк",
@@ -1533,6 +1533,16 @@
 "cap": false,
 "online": true,
 "flex": true
+},
+{
+"bank": "Энерготрансбанк",
+"name": "Доход плюс Сравни.ру",
+"kind": "deposit",
+"term": 6,
+"rate": 13.0,
+"cap": false,
+"online": false,
+"flex": false
 },
 {
 "bank": "Ак Барс Банк",
