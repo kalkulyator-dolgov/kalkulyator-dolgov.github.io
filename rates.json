@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-23T14:32Z",
+"updated": "2026-11-24T14:49Z",
 "source": "sravni.ru",
 "amount": 1000000,
-"count": 312,
+"count": 310,
 "offers": [
 {
 "bank": "Банк ПСБ",
@@ -23,6 +23,16 @@
 "cap": true,
 "online": true,
 "flex": true
+},
+{
+"bank": "ТКБ Банк",
+"name": "Старт",
+"kind": "deposit",
+"term": 3,
+"rate": 15.01,
+"cap": true,
+"online": true,
+"flex": false
 },
 {
 "bank": "Альфа-Банк",
@@ -76,7 +86,7 @@
 },
 {
 "bank": "ТКБ Банк",
-"name": "Старт",
+"name": "Новые деньги",
 "kind": "deposit",
 "term": 3,
 "rate": 14.77,
@@ -106,9 +116,9 @@
 },
 {
 "bank": "ТКБ Банк",
-"name": "Новые деньги",
+"name": "Старт",
 "kind": "deposit",
-"term": 3,
+"term": 12,
 "rate": 14.67,
 "cap": true,
 "online": true,
@@ -125,12 +135,22 @@
 "flex": false
 },
 {
-"bank": "Альфа-Банк",
-"name": "Альфавыгодный 2.0",
+"bank": "ТКБ Банк",
+"name": "Новые деньги",
+"kind": "deposit",
+"term": 12,
+"rate": 14.56,
+"cap": true,
+"online": true,
+"flex": false
+},
+{
+"bank": "ТКБ Банк",
+"name": "Золотой сезон",
 "kind": "deposit",
 "term": 3,
-"rate": 14.5,
-"cap": true,
+"rate": 14.51,
+"cap": false,
 "online": true,
 "flex": false
 },
@@ -236,16 +256,6 @@
 },
 {
 "bank": "ТКБ Банк",
-"name": "Старт",
-"kind": "deposit",
-"term": 12,
-"rate": 14.36,
-"cap": true,
-"online": true,
-"flex": false
-},
-{
-"bank": "ТКБ Банк",
 "name": "Хит",
 "kind": "deposit",
 "term": 6,
@@ -275,16 +285,6 @@
 "flex": false
 },
 {
-"bank": "ТКБ Банк",
-"name": "Новые деньги",
-"kind": "deposit",
-"term": 12,
-"rate": 14.26,
-"cap": true,
-"online": true,
-"flex": false
-},
-{
 "bank": "Локо-Банк",
 "name": "Локо-Счет Плюс (на ежедневный остаток)",
 "kind": "accumulative",
@@ -293,16 +293,6 @@
 "cap": true,
 "online": true,
 "flex": true
-},
-{
-"bank": "ТКБ Банк",
-"name": "Золотой сезон",
-"kind": "deposit",
-"term": 3,
-"rate": 14.25,
-"cap": false,
-"online": true,
-"flex": false
 },
 {
 "bank": "Т-Банк",
@@ -353,6 +343,16 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "ТКБ Банк",
+"name": "Хит",
+"kind": "deposit",
+"term": 12,
+"rate": 14.1,
+"cap": true,
+"online": true,
+"flex": true
 },
 {
 "bank": "ТКБ Банк",
@@ -475,16 +475,6 @@
 "flex": false
 },
 {
-"bank": "ТКБ Банк",
-"name": "Хит",
-"kind": "deposit",
-"term": 12,
-"rate": 13.82,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
 "bank": "Банк ПСБ",
 "name": "Стабильный доход",
 "kind": "deposit",
@@ -546,7 +536,7 @@
 },
 {
 "bank": "Русский стандарт",
-"name": "Новый доход",
+"name": "Новые деньги",
 "kind": "deposit",
 "term": 3,
 "rate": 13.8,
@@ -556,7 +546,7 @@
 },
 {
 "bank": "Русский стандарт",
-"name": "Новые деньги",
+"name": "Новый доход",
 "kind": "deposit",
 "term": 3,
 "rate": 13.8,
@@ -756,7 +746,7 @@
 },
 {
 "bank": "Русский стандарт",
-"name": "Новый доход",
+"name": "Новые деньги",
 "kind": "deposit",
 "term": 6,
 "rate": 13.6,
@@ -766,7 +756,7 @@
 },
 {
 "bank": "Русский стандарт",
-"name": "Новые деньги",
+"name": "Новый доход",
 "kind": "deposit",
 "term": 6,
 "rate": 13.6,
@@ -799,16 +789,6 @@
 "name": "Альфа-Вклад Пенсионный",
 "kind": "deposit",
 "term": 3,
-"rate": 13.51,
-"cap": true,
-"online": true,
-"flex": false
-},
-{
-"bank": "Альфа-Банк",
-"name": "Альфавыгодный 2.0",
-"kind": "deposit",
-"term": 6,
 "rate": 13.51,
 "cap": true,
 "online": true,
@@ -1026,22 +1006,22 @@
 },
 {
 "bank": "Фора-Банк",
-"name": "Пенсионный",
-"kind": "deposit",
-"term": 3,
-"rate": 13.42,
-"cap": true,
-"online": false,
-"flex": true
-},
-{
-"bank": "Фора-Банк",
 "name": "Фора-Хит",
 "kind": "deposit",
 "term": 3,
 "rate": 13.42,
 "cap": true,
 "online": true,
+"flex": true
+},
+{
+"bank": "Фора-Банк",
+"name": "Пенсионный",
+"kind": "deposit",
+"term": 3,
+"rate": 13.42,
+"cap": true,
+"online": false,
 "flex": true
 },
 {
@@ -1156,16 +1136,6 @@
 },
 {
 "bank": "Совкомбанк",
-"name": "Максимальный доход Зарплатный",
-"kind": "deposit",
-"term": 6,
-"rate": 13.3,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "Совкомбанк",
 "name": "Щедрая осень",
 "kind": "deposit",
 "term": 6,
@@ -1175,8 +1145,18 @@
 "flex": false
 },
 {
+"bank": "Совкомбанк",
+"name": "Максимальный доход Зарплатный",
+"kind": "deposit",
+"term": 6,
+"rate": 13.3,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
 "bank": "Инго Банк",
-"name": "Пенсионный счет",
+"name": "На завтра",
 "kind": "accumulative",
 "term": 0,
 "rate": 13.25,
@@ -1186,7 +1166,7 @@
 },
 {
 "bank": "Инго Банк",
-"name": "На завтра",
+"name": "Пенсионный счет",
 "kind": "accumulative",
 "term": 0,
 "rate": 13.25,
@@ -1306,7 +1286,7 @@
 },
 {
 "bank": "Альфа-Банк",
-"name": "Альфа-Вклад. Максимальный",
+"name": "Альфа-Вклад Пенсионный",
 "kind": "deposit",
 "term": 12,
 "rate": 13.11,
@@ -1316,7 +1296,7 @@
 },
 {
 "bank": "Альфа-Банк",
-"name": "Альфа-Вклад Пенсионный",
+"name": "Альфа-Вклад. Максимальный",
 "kind": "deposit",
 "term": 12,
 "rate": 13.11,
@@ -1386,7 +1366,7 @@
 },
 {
 "bank": "Совкомбанк",
-"name": "Максимальный доход Зарплатный",
+"name": "Щедрая осень",
 "kind": "deposit",
 "term": 12,
 "rate": 13.1,
@@ -1396,7 +1376,7 @@
 },
 {
 "bank": "Совкомбанк",
-"name": "Щедрая осень",
+"name": "Максимальный доход Зарплатный",
 "kind": "deposit",
 "term": 12,
 "rate": 13.1,
@@ -1796,22 +1776,22 @@
 },
 {
 "bank": "Фора-Банк",
-"name": "Перспектива",
-"kind": "deposit",
-"term": 12,
-"rate": 12.6,
-"cap": false,
-"online": true,
-"flex": true
-},
-{
-"bank": "Фора-Банк",
 "name": "Сберегательный ",
 "kind": "deposit",
 "term": 12,
 "rate": 12.6,
 "cap": false,
 "online": false,
+"flex": true
+},
+{
+"bank": "Фора-Банк",
+"name": "Перспектива",
+"kind": "deposit",
+"term": 12,
+"rate": 12.6,
+"cap": false,
+"online": true,
 "flex": true
 },
 {
@@ -3076,22 +3056,22 @@
 },
 {
 "bank": "Фора-Банк",
-"name": "Пенсионный",
-"kind": "deposit",
-"term": 12,
-"rate": 7.76,
-"cap": true,
-"online": false,
-"flex": true
-},
-{
-"bank": "Фора-Банк",
 "name": "Фора-Хит",
 "kind": "deposit",
 "term": 12,
 "rate": 7.76,
 "cap": true,
 "online": true,
+"flex": true
+},
+{
+"bank": "Фора-Банк",
+"name": "Пенсионный",
+"kind": "deposit",
+"term": 12,
+"rate": 7.76,
+"cap": true,
+"online": false,
 "flex": true
 },
 {
