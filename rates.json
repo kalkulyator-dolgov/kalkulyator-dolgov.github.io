@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-25T14:16Z",
+"updated": "2026-11-26T13:51Z",
 "source": "sravni.ru",
 "amount": 1000000,
-"count": 310,
+"count": 309,
 "offers": [
 {
 "bank": "Банк ПСБ",
@@ -53,16 +53,6 @@
 "cap": false,
 "online": false,
 "flex": false
-},
-{
-"bank": "Локо-Банк",
-"name": "Локо-Счет Плюс (на минимальный остаток)",
-"kind": "accumulative",
-"term": 0,
-"rate": 15.0,
-"cap": true,
-"online": true,
-"flex": true
 },
 {
 "bank": "Яндекс Банк",
@@ -496,6 +486,26 @@
 },
 {
 "bank": "Газпромбанк",
+"name": "Новые деньги",
+"kind": "deposit",
+"term": 3,
+"rate": 13.8,
+"cap": false,
+"online": false,
+"flex": false
+},
+{
+"bank": "Газпромбанк",
+"name": "В Плюсе",
+"kind": "deposit",
+"term": 3,
+"rate": 13.8,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
+"bank": "Газпромбанк",
 "name": "Ключевой момент",
 "kind": "deposit",
 "term": 6,
@@ -625,6 +635,26 @@
 "flex": false
 },
 {
+"bank": "Газпромбанк",
+"name": "Новые деньги",
+"kind": "deposit",
+"term": 6,
+"rate": 13.7,
+"cap": false,
+"online": false,
+"flex": false
+},
+{
+"bank": "Газпромбанк",
+"name": "В Плюсе",
+"kind": "deposit",
+"term": 6,
+"rate": 13.7,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
 "bank": "ДОМ.РФ Банк",
 "name": "Мой Дом",
 "kind": "deposit",
@@ -692,46 +722,6 @@
 "rate": 13.6,
 "cap": false,
 "online": false,
-"flex": false
-},
-{
-"bank": "Газпромбанк",
-"name": "Новые деньги",
-"kind": "deposit",
-"term": 3,
-"rate": 13.6,
-"cap": false,
-"online": false,
-"flex": false
-},
-{
-"bank": "Газпромбанк",
-"name": "В Плюсе",
-"kind": "deposit",
-"term": 3,
-"rate": 13.6,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "Газпромбанк",
-"name": "Новые деньги",
-"kind": "deposit",
-"term": 6,
-"rate": 13.6,
-"cap": false,
-"online": false,
-"flex": false
-},
-{
-"bank": "Газпромбанк",
-"name": "В Плюсе",
-"kind": "deposit",
-"term": 6,
-"rate": 13.6,
-"cap": false,
-"online": true,
 "flex": false
 },
 {
@@ -1455,6 +1445,16 @@
 "flex": true
 },
 {
+"bank": "Газпромбанк",
+"name": "Копить",
+"kind": "deposit",
+"term": 3,
+"rate": 13.0,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
 "bank": "Кредит Европа Банк (Россия)",
 "name": "Оптимальный",
 "kind": "deposit",
@@ -1579,16 +1579,6 @@
 "name": "Стабильный доход",
 "kind": "deposit",
 "term": 12,
-"rate": 12.8,
-"cap": false,
-"online": true,
-"flex": false
-},
-{
-"bank": "Газпромбанк",
-"name": "Копить",
-"kind": "deposit",
-"term": 3,
 "rate": 12.8,
 "cap": false,
 "online": true,
