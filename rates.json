@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-26T13:51Z",
+"updated": "2026-11-27T13:48Z",
 "source": "sravni.ru",
 "amount": 1000000,
-"count": 309,
+"count": 318,
 "offers": [
 {
 "bank": "Банк ПСБ",
@@ -926,7 +926,27 @@
 },
 {
 "bank": "Сбербанк",
+"name": "Лучший %",
+"kind": "deposit",
+"term": 3,
+"rate": 13.5,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
+"bank": "Сбербанк",
 "name": "Лучший % (в конце срока)",
+"kind": "deposit",
+"term": 6,
+"rate": 13.5,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
+"bank": "Сбербанк",
+"name": "Лучший %",
 "kind": "deposit",
 "term": 6,
 "rate": 13.5,
@@ -1132,26 +1152,6 @@
 "rate": 13.26,
 "cap": true,
 "online": false,
-"flex": true
-},
-{
-"bank": "Инго Банк",
-"name": "На завтра",
-"kind": "accumulative",
-"term": 0,
-"rate": 13.25,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "Инго Банк",
-"name": "Пенсионный счет",
-"kind": "accumulative",
-"term": 0,
-"rate": 13.25,
-"cap": true,
-"online": true,
 "flex": true
 },
 {
@@ -1427,16 +1427,6 @@
 {
 "bank": "Банк Уралсиб",
 "name": "Уралсиб счет",
-"kind": "accumulative",
-"term": 0,
-"rate": 13.0,
-"cap": true,
-"online": true,
-"flex": true
-},
-{
-"bank": "Вайлдберриз Банк",
-"name": "Накопительный счёт",
 "kind": "accumulative",
 "term": 0,
 "rate": 13.0,
@@ -1855,6 +1845,16 @@
 "flex": false
 },
 {
+"bank": "РОССИЯ",
+"name": "Россия",
+"kind": "deposit",
+"term": 6,
+"rate": 12.5,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
 "bank": "Русский стандарт",
 "name": "Максимальный",
 "kind": "deposit",
@@ -1965,6 +1965,16 @@
 "flex": false
 },
 {
+"bank": "РОССИЯ",
+"name": "Россия",
+"kind": "deposit",
+"term": 3,
+"rate": 12.4,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
 "bank": "Фора-Банк",
 "name": "Рантье",
 "kind": "deposit",
@@ -2010,6 +2020,16 @@
 "kind": "deposit",
 "term": 6,
 "rate": 12.3,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
+"bank": "Инго Банк",
+"name": "Пенсионный счет",
+"kind": "accumulative",
+"term": 0,
+"rate": 12.25,
 "cap": true,
 "online": true,
 "flex": true
@@ -2415,6 +2435,16 @@
 "flex": false
 },
 {
+"bank": "РОССИЯ",
+"name": "Россия",
+"kind": "deposit",
+"term": 12,
+"rate": 11.2,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
 "bank": "Банк ПСБ",
 "name": "Мои возможности",
 "kind": "deposit",
@@ -2465,6 +2495,16 @@
 "flex": true
 },
 {
+"bank": "РОССИЯ",
+"name": "Выгодный",
+"kind": "accumulative",
+"term": 0,
+"rate": 11.0,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
 "bank": "Русский стандарт",
 "name": "Максимальный",
 "kind": "deposit",
@@ -2477,6 +2517,16 @@
 {
 "bank": "Сбербанк",
 "name": "Лучший % (в конце срока)",
+"kind": "deposit",
+"term": 12,
+"rate": 11.0,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
+"bank": "Сбербанк",
+"name": "Лучший %",
 "kind": "deposit",
 "term": 12,
 "rate": 11.0,
@@ -2503,6 +2553,16 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "НОВИКОМ",
+"name": "Комфорт молодежный онлайн",
+"kind": "deposit",
+"term": 6,
+"rate": 10.94,
+"cap": true,
+"online": true,
+"flex": true
 },
 {
 "bank": "Локо-Банк",
@@ -2836,6 +2896,16 @@
 },
 {
 "bank": "НОВИКОМ",
+"name": "Комфорт молодежный онлайн",
+"kind": "deposit",
+"term": 24,
+"rate": 9.83,
+"cap": true,
+"online": true,
+"flex": true
+},
+{
+"bank": "НОВИКОМ",
 "name": "Капитал",
 "kind": "deposit",
 "term": 6,
@@ -2853,6 +2923,16 @@
 "cap": false,
 "online": true,
 "flex": false
+},
+{
+"bank": "НОВИКОМ",
+"name": "Комфорт молодежный онлайн",
+"kind": "deposit",
+"term": 12,
+"rate": 9.6,
+"cap": true,
+"online": true,
+"flex": true
 },
 {
 "bank": "Фора-Банк",
@@ -2947,6 +3027,16 @@
 {
 "bank": "Сбербанк",
 "name": "Лучший % (в конце срока)",
+"kind": "deposit",
+"term": 24,
+"rate": 8.5,
+"cap": false,
+"online": true,
+"flex": false
+},
+{
+"bank": "Сбербанк",
+"name": "Лучший %",
 "kind": "deposit",
 "term": 24,
 "rate": 8.5,
